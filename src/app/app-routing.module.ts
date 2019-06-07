@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// import {HrComponent} from './modules/hr';
-// import {EmployeeComponent} from './modules/employee';
-
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './modules/hr/hr.module#HrModule'
+    loadChildren: './modules/security/security.module#SecurityModule'
   },
   {
     path: 'employee',
     loadChildren: './modules/employee/employee.module#EmployeeModule'
   },
-  // { path: '', component: HrComponent },
-  // { path: 'home', component: HrComponent },
-  // { path: 'employee', component: EmployeeHomeComponent }
+  {
+    path: 'core',
+    loadChildren: './modules/core/core.module#CoreModule'
+  },
+  {
+    path: 'home',
+    loadChildren: './modules/hr/hr.module#HrModule'
+  },
 ];
 
 @NgModule({

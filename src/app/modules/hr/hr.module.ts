@@ -6,6 +6,7 @@ import { HrComponent } from './hr.component';
 
 // Modules
 import {HrRoutingModule} from './hr-routing.module';
+import {CoreModule} from '../core';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {HrRoutingModule} from './hr-routing.module';
   ],
   imports: [
     CommonModule,
-    HrRoutingModule
+    HrRoutingModule,
+    CoreModule
   ],
   bootstrap: [HrComponent]
 })
