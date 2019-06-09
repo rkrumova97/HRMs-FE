@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CoreComponent } from './core.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CoreComponent} from './core.component';
 import {CoreRoutingModule} from './core-routing.module';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { ErrorComponent } from './components/error/error.component';
+import {NavigationComponent} from './components/navigation/navigation.component';
+import {ErrorComponent} from './components/error/error.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [CoreComponent, NavigationComponent, ErrorComponent],
@@ -13,9 +14,11 @@ import { ErrorComponent } from './components/error/error.component';
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    HttpClientModule,
   ],
   bootstrap: [CoreComponent]
 
 })
-export class CoreModule { }
+export class CoreModule {
+}
