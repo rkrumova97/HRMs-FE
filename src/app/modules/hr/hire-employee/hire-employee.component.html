@@ -1,10 +1,9 @@
-
 <h1>Hire Employee</h1>
 
 <form>
 
   <div class="form-group row">
-    <label for="name"  class="col-2 col-form-label">Name</label>
+    <label for="name" class="col-2 col-form-label">Name</label>
     <div class="col-10">
       <input class="form-control" id="name" placeholder="Enter name of employee">
     </div>
@@ -31,7 +30,7 @@
 
   <div class="form-group row">
     <label for="address" class="col-2 col-form-label">Address</label>
-    <textarea class="form-control rounded-0" id="address" rows="2"  ></textarea>
+    <textarea class="form-control rounded-0" id="address" rows="2"></textarea>
   </div>
 
   <div class="form-group row">
@@ -76,18 +75,22 @@
 
   <div class="form-group row">
     <label class="col-2 col-form-label">Grade</label>
-    <div class="custom-control custom-radio">
-      <input type="radio" class="custom-control-input" id="junior-grade" name="grade">
-      <label class="custom-control-label" for="junior-grade">Junior</label>
-    </div>
-    <div class="custom-control custom-radio">
-      <input type="radio" class="custom-control-input" id="middle-grade" name="grade">
-      <label class="custom-control-label" for="middle-grade">Middle</label>
-    </div>
+    <ng-container *ngFor="let grade of grades">
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" name="grade">
+        <label class="custom-control-label">  {{grade}}  </label>
+      </div>
+    </ng-container>
   </div>
 
   <div class="form-group row">
     <label class="col-2 col-form-label">Skill</label>
+    <ng-container *ngFor="let skill of skills">
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" name="skill">
+        <label class="custom-control-label">  {{skill}}  </label>
+      </div>
+    </ng-container>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
