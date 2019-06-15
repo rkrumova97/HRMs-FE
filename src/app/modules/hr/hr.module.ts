@@ -7,10 +7,12 @@ import { HrComponent } from './hr.component';
 // Modules
 import {HrRoutingModule} from './hr-routing.module';
 import {CoreModule} from '../core';
+import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
 
 @NgModule({
   declarations: [
-    HrComponent
+    HrComponent,
+    HireEmployeeComponent,
   ],
   imports: [
     CommonModule,
