@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: './modules/core/core.module#CoreModule'
   },
   {
-    path: 'home',
+    path: 'hr',
     loadChildren: './modules/hr/hr.module#HrModule'
   },
 ];

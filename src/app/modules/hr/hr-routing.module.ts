@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HrComponent} from './hr.component';
 import {HireEmployeeComponent} from "./hire-employee/hire-employee.component";
+import {InterviewPersonComponent} from "./interview-person/interview-person.component";
 
 export class HrRoutes {
   static hrRoutes: Routes = [
@@ -9,14 +10,21 @@ export class HrRoutes {
       path: '',
       component: HrComponent,
       children: [
-        {path: 'home', component: HrComponent}
+        {path: 'hr', component: HrComponent}
       ],
     },
     {
       path: 'hire',
       component: HireEmployeeComponent,
       children: [
-        {path: 'home', component: HrComponent}
+        {path: 'hr', component: HrComponent}
+      ],
+    },
+    {
+      path: 'interview',
+      component: InterviewPersonComponent,
+      children: [
+        {path: 'hr', component: HrComponent}
       ],
     }
   ];
