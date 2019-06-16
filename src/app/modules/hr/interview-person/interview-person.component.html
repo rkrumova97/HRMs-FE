@@ -1,3 +1,128 @@
-<p>
-  interview-person works!
-</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Hire Employee</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="headerTitle">Interview Person</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <form method="post" class="needs-validation" novalidate>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="firstName" class="col-12 col-form-label">First name</label>
+            <div class="col-12">
+              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name">
+            </div>
+            <div class="invalid-tooltip">
+              Please type valid first name.
+            </div>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="lastName" class="col-12 col-form-label">Middle name</label>
+            <div class="col-12">
+              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="middleName" class="col-12 col-form-label">Last name</label>
+            <div class="col-12">
+              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-12 col-form-label">Gender</label>
+            <div class="ml-3 custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="male-gender" name="gender">
+              <label class="custom-control-label" for="male-gender">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="female-gender" name="gender">
+              <label class="custom-control-label" for="female-gender">Female</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="other-gender" name="gender">
+              <label class="custom-control-label" for="other-gender">Other</label>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+
+          <div class="form-group col-md-6">
+            <label for="area" class="col-12 col-form-label">Area</label>
+            <div class="col-12">
+              <input class="form-control" id="area" required="required" placeholder="Type employee area of living">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="city" class="col-12 col-form-label">City</label>
+            <div class="col-12">
+              <input class="form-control" id="city" required="required" placeholder="Type employee city of living">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="address" class="col-12 col-form-label">Address</label>
+            <div class="col-12">
+              <input class="form-control" type="text" required="required"
+                     placeholder="Employee personal address"
+                     id="address">
+            </div>
+          </div>
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit interview</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+
