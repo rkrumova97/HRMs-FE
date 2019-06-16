@@ -1,98 +1,214 @@
-<h1>Hire Employee</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<form>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <div class="form-group row">
-    <label for="name" class="col-2 col-form-label">Name</label>
-    <div class="col-10">
-      <input class="form-control" id="name" placeholder="Enter name of employee">
+  <title>Hire Employee</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="headerTitle">Hire Employee</h1>
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="age-input" class="col-2 col-form-label">Age</label>
-    <div class="col-10">
-      <input class="form-control" type="number" id="age-input">
+  <div class="row">
+    <div class="col-12">
+      <form method="post" class="needs-validation" novalidate>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="firstName" class="col-12 col-form-label">First name</label>
+            <div class="col-12">
+              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name">
+            </div>
+            <div class="invalid-tooltip">
+              Please type valid first name.
+            </div>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="lastName" class="col-12 col-form-label">Middle name</label>
+            <div class="col-12">
+              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="middleName" class="col-12 col-form-label">Last name</label>
+            <div class="col-12">
+              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="age-input" class="col-12 col-form-label">Age</label>
+            <div class="col-12">
+              <input class="form-control" type="number" min="18" max="99" required="required" size="2" maxlength="2"
+                     placeholder="Employee age"
+                     id="age-input">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label class="col-12 col-form-label">Gender</label>
+            <div class="ml-3 custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="male-gender" name="gender">
+              <label class="custom-control-label" for="male-gender">Male</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="female-gender" name="gender">
+              <label class="custom-control-label" for="female-gender">Female</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" class="custom-control-input" id="other-gender" name="gender">
+              <label class="custom-control-label" for="other-gender">Other</label>
+            </div>
+
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <label for="address" class="col-12 col-form-label">Address</label>
+            <div class="col-12">
+              <input class="form-control" type="text" required="required"
+                     placeholder="Employee personal address"
+                     id="address">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="exampleInputEmail1" class="col-12 col-form-label">Email address</label>
+            <div class="col-12">
+              <input class="form-control" id="exampleInputEmail1" type="email" required="required"
+                     placeholder="Personal employee email">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="salary-input" class="col-12 col-form-label">Salary</label>
+            <div class="col-12">
+              <div class="input-group">
+                <input class="form-control" type="text" placeholder="Employee starting salary" type="number" min="1"
+                       max="100000" id="salary-input" required="required" class="form-control"
+                       aria-label="Dollar amount (with dot and two decimal places)">
+                <div class="input-group-append">
+                  <span class="input-group-text">лв.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="starting-date" class="col-12 col-form-label">Starting Date</label>
+            <div class="col-12">
+              <input class="form-control" placeholder="First working day" type="date" id="starting-date">
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="vacation-days-input" class="col-12 col-form-label">Vacation Days</label>
+            <div class="col-12">
+              <input class="form-control" type="number" id="vacation-days-input" placeholder="Vacation days" min="0"
+                     max="25" required="required">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="working-hours-input" class="col-12 col-form-label">Working Hours</label>
+            <div class="col-12">
+              <select class="custom-select" id="working-hours-input" required>
+                <option value="4">Four hours a day</option>
+                <option value="6">Six hours a day</option>
+                <option value="8">Eight hours a day</option>
+              </select>
+              <div class="invalid-feedback">Invalid selection!</div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="working-days-input" class="col-12 col-form-label">Working Days</label>
+            <div class="col-12">
+              <select class="custom-select" id="working-days-input" required>
+                <option value="3">Three days a week</option>
+                <option value="4">Four days a week</option>
+                <option value="5">Five days a week</option>
+              </select>
+              <div class="invalid-feedback">Invalid selection!</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Grade</label>
+            <ng-container *ngFor="let grade of grades">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="{{grade}}" name="gg" class="custom-control-input">
+                <label class="custom-control-label" for="{{grade}}">{{grade}}</label>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Skill</label>
+            <ng-container *ngFor="let skill of skills">
+              <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input">
+                <label class="custom-control-label" for="customRadio1">{{skill}}</label>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit employee</button>
+
+      </form>
     </div>
   </div>
+</div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Gender</label>
-    <div class="custom-control custom-radio">
-      <input type="radio" class="custom-control-input" id="male-gender" name="gender">
-      <label class="custom-control-label" for="male-gender">Male</label>
-    </div>
-    <div class="custom-control custom-radio">
-      <input type="radio" class="custom-control-input" id="female-gender" name="gender">
-      <label class="custom-control-label" for="female-gender">Female</label>
-    </div>
-  </div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
 
-  <div class="form-group row">
-    <label for="address" class="col-2 col-form-label">Address</label>
-    <textarea class="form-control rounded-0" id="address" rows="2"></textarea>
-  </div>
 
-  <div class="form-group row">
-    <label for="exampleInputEmail1" class="col-2 col-form-label">Email address</label>
-    <input class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-  </div>
-
-  <div class="form-group row">
-    <label for="salary-input" class="col-2 col-form-label">Salary</label>
-    <div class="col-10">
-      <input class="form-control" type="number" id="salary-input">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="starting-date" class="col-2 col-form-label">Starting Date</label>
-    <div class="col-10">
-      <input class="form-control" type="date" id="starting-date">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="vacation-days-input" class="col-2 col-form-label">Vacation Days</label>
-    <div class="col-10">
-      <input class="form-control" type="number" id="vacation-days-input">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="working-hours-input" class="col-2 col-form-label">Working Hours</label>
-    <div class="col-10">
-      <input class="form-control" type="number" id="working-hours-input">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label for="working-days-input" class="col-2 col-form-label">Working Days</label>
-    <div class="col-10">
-      <input class="form-control" type="number" id="working-days-input">
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Grade</label>
-    <ng-container *ngFor="let grade of grades">
-      <div class="custom-control custom-radio">
-        <input type="radio" id="{{grade}}" name="gg" class="custom-control-input">
-        <label class="custom-control-label" for="{{grade}}">{{grade}}</label>
-      </div>
-    </ng-container>
-  </div>
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Skill</label>
-    <ng-container *ngFor="let skill of skills">
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio1">{{skill}}</label>
-      </div>
-    </ng-container>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Submit</button>
-
-</form>
