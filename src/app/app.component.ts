@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'HRMs-FE';
+  public href = '';
+
+  constructor(private router: Router) {}
+
+
+  isLogin(): boolean {
+    this.href = this.router.url;
+    console.log(this.router.url);
+    return this.href === '/';
+  }
 }

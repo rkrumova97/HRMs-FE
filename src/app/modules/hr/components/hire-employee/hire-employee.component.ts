@@ -63,7 +63,7 @@ export class HireEmployeeComponent implements OnInit {
     this.http.post<Query>('http://localhost:8080/hire', JSON.stringify(this.employee), httpOptions)
       .subscribe(r => {
         console.log(r);
-        this.router.navigate(['/']);
+        this.router.navigate(['/hr']);
       });
   }
 }

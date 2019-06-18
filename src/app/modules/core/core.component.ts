@@ -29,5 +29,4 @@ export class CoreComponent {
     this.http.post<Query>('http://localhost:8080/skillsee', JSON.stringify(this.quer), httpOptions)
       .subscribe(r => JSON.stringify(this.quer));
   }
-
 }
