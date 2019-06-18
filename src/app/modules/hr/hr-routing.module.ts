@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HrComponent} from './hr.component';
-import {HireEmployeeComponent} from "./hire-employee/hire-employee.component";
-import {InterviewPersonComponent} from "./interview-person/interview-person.component";
+import {HireEmployeeComponent} from './components/hire-employee/hire-employee.component';
+import {InterviewPersonComponent} from './components/interview-person/interview-person.component';
 
 export class HrRoutes {
   static hrRoutes: Routes = [

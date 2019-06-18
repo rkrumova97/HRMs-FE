@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CoreComponent} from './core.component';
 import {ErrorComponent} from './components/error/error.component';
+import {NavigationComponent} from "./components/navigation/navigation.component";
 
 export class CoreRoutes {
   static coreRoutes: Routes = [
@@ -12,6 +13,13 @@ export class CoreRoutes {
         {path: 'core', component: CoreComponent},
       ]
     } ,
+    {
+      path: 'nav',
+      component: NavigationComponent,
+      children: [
+        {path: 'nav', component: NavigationComponent},
+      ]
+    },
     {
       path: '**',
       component: ErrorComponent,

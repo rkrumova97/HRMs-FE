@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from "rxjs";
+import {Component} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Query} from './query.model';
 
 @Component({
   selector: 'app-core',
@@ -15,12 +15,19 @@ export class CoreComponent {
     this.http = http;
   }
 
-  getHelloWorld() {
-    const requestOptions: object = {
-      /* other options here */
-      responseType: 'text'
-    }
-    return this.http.get<any>('http://localhost:8080/hello', requestOptions).subscribe(d => console.log(d));
+  quer = new Query(null, null);
+
+  number: number;
+
+  onSubmit() {
+    console.log(this.quer);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    this.http.post<Query>('http://localhost:8080/skillsee', JSON.stringify(this.quer), httpOptions)
+      .subscribe(r => JSON.stringify(this.quer));
   }
 
 }

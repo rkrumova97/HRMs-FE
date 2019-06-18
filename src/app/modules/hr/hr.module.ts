@@ -8,8 +8,8 @@ import { HrComponent } from './hr.component';
 import {HrRoutingModule} from './hr-routing.module';
 import {CoreModule} from '../core';
 import {FormsModule} from "@angular/forms";
-import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
-import { InterviewPersonComponent } from './interview-person/interview-person.component';
+import { HireEmployeeComponent } from './components/hire-employee/hire-employee.component';
+import { InterviewPersonComponent } from './components/interview-person/interview-person.component';
 
 @NgModule({
   declarations: [
