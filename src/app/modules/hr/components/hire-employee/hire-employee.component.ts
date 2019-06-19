@@ -17,6 +17,7 @@ export class HireEmployeeComponent implements OnInit {
   employee: Employee;
   genders: string[];
   router: Router;
+  dropdownSettings = {};
   workingDays = [
     { name: 'Three days a week', value: 3 },
     { name: 'Four days a week', value: 4 },
@@ -51,6 +52,16 @@ export class HireEmployeeComponent implements OnInit {
       this.skills = res;
       console.log(this.skills);
     });
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   onSubmit() {

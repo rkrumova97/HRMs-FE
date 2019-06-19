@@ -8,9 +8,8 @@ import { HrComponent } from './hr.component';
 import {HrRoutingModule} from './hr-routing.module';
 import {CoreModule} from '../core';
 import {FormsModule} from '@angular/forms';
-import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
-import { InterviewPersonComponent } from './interview-person/interview-person.component';
-import { NavbarComponent } from './interview-person/navbar/navbar.component';
+import { HireEmployeeComponent } from './components/hire-employee/hire-employee.component';
+import { InterviewPersonComponent } from './components/interview-person/interview-person.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ListEmployeesComponent } from './components/list-employees/list-employees.component';
 import { FireEmployeeComponent } from './components/fire-employee/fire-employee.component';
@@ -22,7 +21,6 @@ import { VacationComponent } from './components/vacation/vacation.component';
     HrComponent,
     HireEmployeeComponent,
     InterviewPersonComponent,
-    NavbarComponent
     ListEmployeesComponent,
     FireEmployeeComponent,
     GiveSalaryComponent,
