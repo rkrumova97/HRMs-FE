@@ -112,8 +112,8 @@
             <label for="salary-input" class="col-12 col-form-label">Salary</label>
             <div class="col-12">
               <div class="input-group">
-                <input class="form-control" type="text" placeholder="Employee starting salary" type="number" min="1"
-                       max="100000" id="salary-input" required="required" class="form-control"
+                <input class="form-control" placeholder="Employee starting salary" type="number" min="1"
+                       max="100000" id="salary-input" required="required"
                        aria-label="Dollar amount (with dot and two decimal places)">
                 <div class="input-group-append">
                   <span class="input-group-text">лв.</span>
@@ -181,12 +181,17 @@
 
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Skill</label>
-            <ng-container *ngFor="let skill of skills">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">{{skill}}</label>
-              </div>
-            </ng-container>
+            <div class="col-12">
+              <ng-multiselect-dropdown
+                placeholder="Select skills"
+                name="dropdownSkills"
+                [data]="skills"
+                [(ngModel)]="selectedItems"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+              </ng-multiselect-dropdown>
+            </div>
           </div>
         </div>
 

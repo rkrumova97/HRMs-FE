@@ -11,6 +11,8 @@ export class HireEmployeeComponent implements OnInit {
   grades: string[];
   http: HttpClient;
   skills: string[];
+  selectedItems = [];
+  dropdownSettings = {};
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -26,6 +28,23 @@ export class HireEmployeeComponent implements OnInit {
       this.skills = res;
       console.log(this.skills);
     });
+
+     this.dropdownSettings = {
+        singleSelection: false,
+        idField: 'item_id',
+        textField: 'item_text',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 3,
+        allowSearchFilter: true
+      };
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
 }
