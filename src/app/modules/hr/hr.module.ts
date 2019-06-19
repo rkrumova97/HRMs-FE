@@ -7,7 +7,7 @@ import { HrComponent } from './hr.component';
 // Modules
 import {HrRoutingModule} from './hr-routing.module';
 import {CoreModule} from '../core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HireEmployeeComponent } from './components/hire-employee/hire-employee.component';
 import { InterviewPersonComponent } from './components/interview-person/interview-person.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -33,6 +33,7 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
     HrRoutingModule,
     CoreModule,
     FormsModule,
+    ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
   bootstrap: [HrComponent]

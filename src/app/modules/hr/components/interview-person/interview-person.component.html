@@ -1,17 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <title>Hire Employee</title>
-</head>
-<body>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
@@ -21,27 +7,41 @@
 
   <div class="row">
     <div class="col-12">
-      <form method="post" class="needs-validation" novalidate>
+      <form *ngIf="person" #personForm="ngForm">
 
         <div class="form-row">
 
           <div class="form-group col-md-6">
             <label for="firstName" class="col-12 col-form-label">First name</label>
             <div class="col-12">
-              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name">
-            </div>
-            <div class="invalid-tooltip">
-              Please type valid first name.
-            </div>
-            <div class="valid-tooltip">
-              Looks good!
+              <input type="text"
+                     class="form-control"
+                     id="firstName"
+                     name="firstName"
+                     [(ngModel)]="person.firstName"
+                     required
+                     #firstName="ngModel"
+                     [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched || submitted) }" />
+              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)" class="invalid-feedback">
+                <span>First name is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="lastName" class="col-12 col-form-label">Middle name</label>
+            <label for="middleName" class="col-12 col-form-label">Middle name</label>
             <div class="col-12">
-              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name">
+              <input type="text"
+                     class="form-control"
+                     id="middleName"
+                     name="middleName"
+                     [(ngModel)]="person.middleName"
+                     required
+                     #middleName="ngModel"
+                     [ngClass]="{ 'is-invalid': middleName.invalid && (middleName.dirty || middleName.touched || submitted) }" />
+              <div *ngIf="middleName.invalid && (middleName.dirty || middleName.touched || submitted)" class="invalid-feedback">
+                <span>Middle name is required field.</span>
+              </div>
             </div>
           </div>
 
@@ -50,79 +50,91 @@
         <div class="form-row">
 
           <div class="form-group col-md-6">
-            <label for="middleName" class="col-12 col-form-label">Last name</label>
+            <label for="lastName" class="col-12 col-form-label">Last name</label>
             <div class="col-12">
-              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name">
+              <input type="text"
+                     class="form-control"
+                     id="lastName"
+                     name="lastName"
+                     [(ngModel)]="person.lastName"
+                     required
+                     #lastName="ngModel"
+                     [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched || submitted) }" />
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)" class="invalid-feedback">
+                <span>Last name is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label class="col-12 col-form-label">Gender</label>
-            <div class="ml-3 custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="male-gender" name="gender">
-              <label class="custom-control-label" for="male-gender">Male</label>
+            <label for="email" class="col-12 col-form-label">Email</label>
+            <div class="col-12">
+              <input type="text"
+                     class="form-control"
+                     id="email"
+                     name="email"
+                     [(ngModel)]="person.email"
+                     required
+                     #email="ngModel"
+                     [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched || submitted) }" />
+              <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="invalid-feedback">
+                <span>Email is required field.</span>
+              </div>
             </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="female-gender" name="gender">
-              <label class="custom-control-label" for="female-gender">Female</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="other-gender" name="gender">
-              <label class="custom-control-label" for="other-gender">Other</label>
-            </div>
-
           </div>
-
         </div>
-
         <div class="form-row">
-
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Grade</label>
+            <div class="col-12">
+              <ng-container *ngFor="let gender of genders">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="{{gender}}" name="gender" class="custom-control-input" [value]="gender.valueOf()"
+                         [(ngModel)]="person.gender">
+                  <label class="custom-control-label" for="{{gender}}">{{gender}}</label>
+                </div>
+              </ng-container>
+            </div>
+          </div>
 
           <div class="form-group col-md-6">
             <label for="area" class="col-12 col-form-label">Area</label>
             <div class="col-12">
-              <input class="form-control" id="area" required="required" placeholder="Type employee area of living">
+              <input class="form-control" id="area" [(ngModel)]="person.area" name="area" placeholder="Type employee area of living">
             </div>
           </div>
 
+        </div>
+        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="city" class="col-12 col-form-label">City</label>
             <div class="col-12">
-              <input class="form-control" id="city" required="required" placeholder="Type employee city of living">
+              <input class="form-control" id="city" [(ngModel)]="person.city" name="city" placeholder="Type employee city of living">
             </div>
           </div>
 
           <div class="form-group col-md-6">
             <label for="address" class="col-12 col-form-label">Address</label>
             <div class="col-12">
-              <input class="form-control" type="text" required="required"
+              <input class="form-control" [(ngModel)]="person.address" name="address" type="text"
                      placeholder="Employee personal address"
                      id="address">
             </div>
           </div>
-
         </div>
 
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="file" class="col-12 col-form-label">Upload CV</label>
+            <div class="col-12">
+                <input type="file" name="file" id="file" class="btn btn-primary" />
+              </div>
+          </div>
+        </div>
 
-        <button type="submit" class="btn btn-primary">Submit interview</button>
-
+        <button type="submit" class="btn btn-primary" [disabled]="isAdding" (click)="addPerson(personForm.valid)">Add</button>
+        <button type="button" class="btn btn-primary" (click)="cancelAdd()">Back</button>
       </form>
     </div>
   </div>
 </div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
-</html>
-
-
