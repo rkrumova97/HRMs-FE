@@ -39,29 +39,68 @@
           </thead>
           <tbody class="bg-light text-center">
           <tr *ngFor="let employee of employees; let i = index" [attr.data-index]="0">
-            <td>{{i + 1}}</td>
+            <td> {{employee.id}} </td>
             <td>{{employee.firstName + " " + employee.middleName + " " + employee.lastName}}</td>
-            <td>{{i}}</td>
-            <td>{{employee.startDate}}</td>
-            <td>{{employee.salary}}</td>
-            <td>{{employee.vacationDays}}</td>
-            <td>{{employee.workingHours}}</td>
-            <td>{{employee.workingDays}}</td>
-            <td>{{employee.grade}}</td>
-            <td *ngFor="let skill of employee.skill">{{skill +", "}}</td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.position}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'position', $event)">
+                {{employee.position}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.startDate}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'startDate', $event)">
+                  {{employee.startDate}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.salary}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'salary', $event)">
+                  {{employee.salary}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.vacationDays}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'vacationDays', $event)">
+                  {{employee.vacationDays}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.workingHours}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'workingHours', $event)">
+                  {{employee.workingHours}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.workingDays}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'workingDays', $event)">
+                  {{employee.workingDays}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.grade}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'grade', $event)">
+                  {{employee.grade}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.skill}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'skill', $event)">
+                  {{employee.skill}}
+              </span>
+            </td>
             <td class="td-actions">
-              <button type="button" rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm"
-                      data-original-title="" title="">
+              <a rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm"
+                 href="/hr/profile/{{employee.id}}">
                 <i class="material-icons">person</i>
-              </button> &nbsp;
-              <button type="button" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"
-                      data-original-title="" title="">
+              </a> &nbsp;
+              <a rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"
+                 data-original-title="" title="" (click)="toggle(employee)">
                 <i class="material-icons">edit</i>
-              </button> &nbsp;
-              <button type="button" rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"
-                      data-original-title="" title="">
+              </a> &nbsp;
+              <a rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm" href="/hr/fire/{{employee.id}}">
                 <i class="material-icons">close</i>
-              </button>
+              </a>
             </td>
           </tr>
           </tbody>

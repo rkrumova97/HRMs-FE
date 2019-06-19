@@ -15,6 +15,7 @@ import { ListEmployeesComponent } from './components/list-employees/list-employe
 import { FireEmployeeComponent } from './components/fire-employee/fire-employee.component';
 import { GiveSalaryComponent } from './components/give-salary/give-salary.component';
 import { VacationComponent } from './components/vacation/vacation.component';
+import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { VacationComponent } from './components/vacation/vacation.component';
     FireEmployeeComponent,
     GiveSalaryComponent,
     VacationComponent,
+    EmployeeProfileComponent,
   ],
   imports: [
     CommonModule,

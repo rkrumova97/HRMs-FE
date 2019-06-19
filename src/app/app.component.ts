@@ -15,7 +15,6 @@ export class AppComponent {
 
   isLogin(): boolean {
     this.href = this.router.url;
-    console.log(this.router.url);
     return this.href === '/';
   }
 }

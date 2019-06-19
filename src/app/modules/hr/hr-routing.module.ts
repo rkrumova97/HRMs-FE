@@ -6,6 +6,7 @@ import {InterviewPersonComponent} from './components/interview-person/interview-
 import {FireEmployeeComponent} from "./components/fire-employee/fire-employee.component";
 import {GiveSalaryComponent} from "./components/give-salary/give-salary.component";
 import {ListEmployeesComponent} from "./components/list-employees/list-employees.component";
+import {EmployeeProfileComponent} from "./components/employee-profile/employee-profile.component";
 
 export class HrRoutes {
   static hrRoutes: Routes = [
@@ -47,6 +48,13 @@ export class HrRoutes {
     {
       path: 'salary',
       component: GiveSalaryComponent,
+      children: [
+        {path: 'hr', component: HrComponent}
+      ],
+    },
+    {
+      path: 'profile/:id',
+      component: EmployeeProfileComponent,
       children: [
         {path: 'hr', component: HrComponent}
       ],

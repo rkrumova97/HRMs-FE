@@ -13,8 +13,13 @@ export class Employee {
   workingDays: number;
   grade: string;
   skill: any[];
+  show: any;
+  id: any;
+  position: any[];
+  username: any;
 
-  constructor(  firstName: string,
+  constructor(  id: number,
+                firstName: string,
                 middleName: string,
                 lastName: string,
                 age: number,
@@ -28,6 +33,7 @@ export class Employee {
                 workingDays: number,
                 grade: string,
                 skill: any[] ) {
+    this.id = id;
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
