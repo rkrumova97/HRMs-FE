@@ -26,11 +26,13 @@ export class ListEmployeesComponent implements OnInit {
 
   toggle(employee): boolean {
     employee.show = !employee.show;
-    return  true;
+    return true;
   }
 
   updateList(employee: Employee, property: string, event: any) {
     employee[property] = event.target.textContent;
     console.log(this.employees);
   }
+
+
 }
