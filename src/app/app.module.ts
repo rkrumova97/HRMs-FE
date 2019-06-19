@@ -3,6 +3,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgModule} from '@angular/core';
 import {CoreModule} from './modules/core';
+import {ReactiveFormsModule} from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
@@ -13,9 +14,11 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

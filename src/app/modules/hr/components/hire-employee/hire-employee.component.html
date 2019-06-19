@@ -28,7 +28,9 @@
           <div class="form-group col-md-6">
             <label for="firstName" class="col-12 col-form-label">First name</label>
             <div class="col-12">
-              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name">
+              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name"
+                     name="firstName"
+                     [(ngModel)]="employee.firstName">
             </div>
             <div class="invalid-tooltip">
               Please type valid first name.
@@ -41,7 +43,9 @@
           <div class="form-group col-md-6">
             <label for="lastName" class="col-12 col-form-label">Middle name</label>
             <div class="col-12">
-              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name">
+              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name"
+                     name="middleName"
+                     [(ngModel)]="employee.middleName">
             </div>
           </div>
 
@@ -52,7 +56,9 @@
           <div class="form-group col-md-6">
             <label for="middleName" class="col-12 col-form-label">Last name</label>
             <div class="col-12">
-              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name">
+              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name"
+                     name="lastName"
+                     [(ngModel)]="employee.lastName">
             </div>
           </div>
 
@@ -61,29 +67,22 @@
             <div class="col-12">
               <input class="form-control" type="number" min="18" max="99" required="required" size="2" maxlength="2"
                      placeholder="Employee age"
-                     id="age-input">
+                     id="age-input"  name="age"
+                     [(ngModel)]="employee.age">
             </div>
           </div>
 
         </div>
 
         <div class="form-row">
-
           <div class="form-group col-md-6">
-            <label class="col-12 col-form-label">Gender</label>
-            <div class="ml-3 custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="male-gender" name="gender">
-              <label class="custom-control-label" for="male-gender">Male</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="female-gender" name="gender">
-              <label class="custom-control-label" for="female-gender">Female</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="other-gender" name="gender">
-              <label class="custom-control-label" for="other-gender">Other</label>
-            </div>
-
+            <label class="col-2 col-form-label">Gender</label>
+            <ng-container *ngFor="let gender of genders" >
+              <div class="custom-control custom-radio">
+                <input type="radio" id="{{gender}}" name="gg1" class="custom-control-input" [value]="gender.valueOf()" [(ngModel)]="employee.gender">
+                <label class="custom-control-label" for="{{gender}}">{{gender}}</label>
+              </div>
+            </ng-container>
           </div>
 
 
@@ -92,7 +91,9 @@
             <div class="col-12">
               <input class="form-control" type="text" required="required"
                      placeholder="Employee personal address"
-                     id="address">
+                     id="address"
+                     name="address"
+                     [(ngModel)]="employee.address">
             </div>
           </div>
 
@@ -104,7 +105,9 @@
             <label for="exampleInputEmail1" class="col-12 col-form-label">Email address</label>
             <div class="col-12">
               <input class="form-control" id="exampleInputEmail1" type="email" required="required"
-                     placeholder="Personal employee email">
+                     placeholder="Personal employee email"
+                     name="email"
+                     [(ngModel)]="employee.email">
             </div>
           </div>
 
@@ -112,6 +115,11 @@
             <label for="salary-input" class="col-12 col-form-label">Salary</label>
             <div class="col-12">
               <div class="input-group">
+                <input class="form-control" type="text" placeholder="Employee starting salary" type="number" min="1"
+                       max="100000" id="salary-input" required="required" class="form-control"
+                       aria-label="Dollar amount (with dot and two decimal places)"
+                       name="salary"
+                       [(ngModel)]="employee.salary">
                 <input class="form-control" placeholder="Employee starting salary" type="number" min="1"
                        max="100000" id="salary-input" required="required"
                        aria-label="Dollar amount (with dot and two decimal places)">
@@ -128,7 +136,8 @@
           <div class="form-group col-md-6">
             <label for="starting-date" class="col-12 col-form-label">Starting Date</label>
             <div class="col-12">
-              <input class="form-control" placeholder="First working day" type="date" id="starting-date">
+              <input class="form-control" placeholder="First working day" type="date" id="starting-date" [(ngModel)]="employee.startDate"
+                     name="startDate">
             </div>
           </div>
 
@@ -136,7 +145,8 @@
             <label for="vacation-days-input" class="col-12 col-form-label">Vacation Days</label>
             <div class="col-12">
               <input class="form-control" type="number" id="vacation-days-input" placeholder="Vacation days" min="0"
-                     max="25" required="required">
+                     max="25" required="required" [(ngModel)]="employee.vacationDays"
+                     name="vacation">
             </div>
           </div>
 
@@ -146,10 +156,10 @@
           <div class="form-group col-md-6">
             <label for="working-hours-input" class="col-12 col-form-label">Working Hours</label>
             <div class="col-12">
-              <select class="custom-select" id="working-hours-input" required>
-                <option value="4">Four hours a day</option>
-                <option value="6">Six hours a day</option>
-                <option value="8">Eight hours a day</option>
+              <select [(ngModel)]="employee.workingHours" name="first" id ="working-hours-input" class="custom-select">
+                <option *ngFor="let o of workingHours" [value]="o.value">
+                  {{o.name}}
+                </option>
               </select>
               <div class="invalid-feedback">Invalid selection!</div>
             </div>
@@ -158,10 +168,10 @@
           <div class="form-group col-md-6">
             <label for="working-days-input" class="col-12 col-form-label">Working Days</label>
             <div class="col-12">
-              <select class="custom-select" id="working-days-input" required>
-                <option value="3">Three days a week</option>
-                <option value="4">Four days a week</option>
-                <option value="5">Five days a week</option>
+              <select [(ngModel)]="employee.workingDays" name="first" id ="working-days-input" class="custom-select">
+                <option *ngFor="let o of workingDays" [value]="o.value">
+                  {{o.name}}
+                </option>
               </select>
               <div class="invalid-feedback">Invalid selection!</div>
             </div>
@@ -173,7 +183,8 @@
             <label class="col-2 col-form-label">Grade</label>
             <ng-container *ngFor="let grade of grades">
               <div class="custom-control custom-radio">
-                <input type="radio" id="{{grade}}" name="gg" class="custom-control-input">
+                <input type="radio" id="{{grade}}" name="gg" class="custom-control-input"
+                       [value]="grade.valueOf()" [(ngModel)]="employee.grade">
                 <label class="custom-control-label" for="{{grade}}">{{grade}}</label>
               </div>
             </ng-container>
@@ -186,7 +197,7 @@
                 placeholder="Select skills"
                 name="dropdownSkills"
                 [data]="skills"
-                [(ngModel)]="selectedItems"
+                [(ngModel)]="employee.skill"
                 [settings]="dropdownSettings"
                 (onSelect)="onItemSelect($event)"
                 (onSelectAll)="onSelectAll($event)">

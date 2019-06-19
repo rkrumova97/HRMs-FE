@@ -1,3 +1,13 @@
-<div class=".core"></div>
+<div class=".core" xmlns="http://www.w3.org/1999/html"></div>
+<app-navigation></app-navigation>
 <h1>Core Home</h1>
-<button (click)="getHelloWorld()">Get hello</button>
+  <label>  something1 </label>
+  <input class="form-control" type="number" id="salary-input1" [(ngModel)]="quer.s1"><br/>
+  <input class="form-control" type="number" id="salary-input2" [(ngModel)]="quer.s2"><br/>
+  <label>  something2 </label>
+<!--  <input class="form-control" type="number" id="salary-input2" [(ngModel)]="queryDto.s2"><br/>-->
+<!--  <label>  something3 </label>-->
+<!--  <input class="form-control" type="number" id="salary-input3" [(ngModel)]="queryDto.s3"><br/>-->
+<button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+

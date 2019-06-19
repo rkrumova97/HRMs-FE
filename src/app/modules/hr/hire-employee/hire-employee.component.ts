@@ -11,7 +11,6 @@ export class HireEmployeeComponent implements OnInit {
   grades: string[];
   http: HttpClient;
   skills: string[];
-  selectedItems = [];
   dropdownSettings = {};
 
   constructor(http: HttpClient) {
@@ -19,16 +18,6 @@ export class HireEmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.http.get<string[]>('http://localhost:8080/grades').subscribe(res => {
-      this.grades = res;
-      console.log(this.grades);
-    });
-
-     this.http.get<string[]>('http://localhost:8080/skills').subscribe(res => {
-      this.skills = res;
-      console.log(this.skills);
-    });
-
      this.dropdownSettings = {
         singleSelection: false,
         idField: 'item_id',
@@ -39,12 +28,4 @@ export class HireEmployeeComponent implements OnInit {
         allowSearchFilter: true
       };
   }
-
-  onItemSelect(item: any) {
-    console.log(item);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
-  }
-
 }

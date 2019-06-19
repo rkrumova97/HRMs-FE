@@ -5,17 +5,22 @@ import {CoreRoutingModule} from './core-routing.module';
 import {NavigationComponent} from './components/navigation/navigation.component';
 import {ErrorComponent} from './components/error/error.component';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [CoreComponent, NavigationComponent, ErrorComponent],
+  declarations: [CoreComponent, NavigationComponent, ErrorComponent, FooterComponent],
   exports: [
     CoreComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     CoreRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   bootstrap: [CoreComponent]
 
