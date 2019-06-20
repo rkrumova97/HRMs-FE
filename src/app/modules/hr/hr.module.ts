@@ -21,6 +21,8 @@ import { AddProjectComponent } from './components/project/add-project/add-projec
 import {NgbTabsetModule} from "@ng-bootstrap/ng-bootstrap";
 import { AddPositionComponent } from './components/project/add-position/add-position.component';
 import { AssignEmployeeComponent } from './components/project/assign-employee/assign-employee.component';
+import {NgbdModalBasicModule} from "./components/list-employees/popup/popup.component.spec";
+//import { PopupComponent } from './components/list-employees/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { AssignEmployeeComponent } from './components/project/assign-employee/as
     AddProjectComponent,
     AddPositionComponent,
     AssignEmployeeComponent,
+    //PopupComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,8 @@ import { AssignEmployeeComponent } from './components/project/assign-employee/as
     FormsModule,
     ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
-    NgbTabsetModule
+    NgbTabsetModule,
+    NgbdModalBasicModule
   ],
   bootstrap: [HrComponent]
 })

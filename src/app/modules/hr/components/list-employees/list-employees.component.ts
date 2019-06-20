@@ -11,10 +11,13 @@ export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
   http: HttpClient;
   isClicked: boolean;
+  isPopped: boolean = true;
 
   constructor(http: HttpClient) {
     this.http = http;
   }
+
+
 
   ngOnInit() {
     this.isClicked = true;
@@ -33,6 +36,13 @@ export class ListEmployeesComponent implements OnInit {
     employee[property] = event.target.textContent;
     console.log(this.employees);
   }
+
+  /*open(){
+    // const modalRef = this.modalService.open(ModalComponent);
+    const modalRef = this.modalService.open(ModalAboutComponent);
+    modalRef.componentInstance.title = 'About';
+    console.log("Popped!");
+  }*/
 
 
 }

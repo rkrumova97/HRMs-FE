@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 export class AppComponent {
   title = 'HRMs-FE';
   public href = '';
-
+  isCollapsed: boolean = true;
   constructor(private router: Router) {}
 
 

@@ -32,7 +32,7 @@ export class FireEmployeeComponent implements OnInit {
     console.log(this.employees);
   }
 
-  delete(employee: Employee, property: string, event:any) {
+  delete(employee: Employee) {
     
   }
 }
