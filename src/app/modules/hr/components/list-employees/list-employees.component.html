@@ -44,7 +44,7 @@
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.position}}</span>
               <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'position', $event)">
-                {{employee.position}}
+                {{employee.jobId}}
               </span>
             </td>
             <td>

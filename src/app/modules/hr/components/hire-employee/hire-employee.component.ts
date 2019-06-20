@@ -39,7 +39,7 @@ export class HireEmployeeComponent implements OnInit {
       null, null, null,
       null, null, null,
       null, null, null,
-      null, null, null, null, null);
+      null, null, null, null, null, null);
 
     this.genders = ['Male', 'Female', 'Other'];
 

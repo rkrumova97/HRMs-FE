@@ -16,6 +16,11 @@ import { FireEmployeeComponent } from './components/fire-employee/fire-employee.
 import { GiveSalaryComponent } from './components/give-salary/give-salary.component';
 import { VacationComponent } from './components/vacation/vacation.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
+import { ProjectComponent } from './components/project/project.component';
+import { AddProjectComponent } from './components/project/add-project/add-project.component';
+import {NgbTabsetModule} from "@ng-bootstrap/ng-bootstrap";
+import { AddPositionComponent } from './components/project/add-position/add-position.component';
+import { AssignEmployeeComponent } from './components/project/assign-employee/assign-employee.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,10 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
     GiveSalaryComponent,
     VacationComponent,
     EmployeeProfileComponent,
+    ProjectComponent,
+    AddProjectComponent,
+    AddPositionComponent,
+    AssignEmployeeComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +43,8 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgbTabsetModule
   ],
   bootstrap: [HrComponent]
 })

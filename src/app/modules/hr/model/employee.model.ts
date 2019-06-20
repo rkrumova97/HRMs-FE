@@ -17,7 +17,7 @@ export class Employee {
   id: any;
   position: any[];
   username: any;
-
+  jobId: number;
   constructor(  id: number,
                 firstName: string,
                 middleName: string,
@@ -32,7 +32,8 @@ export class Employee {
                 woringHours: number,
                 workingDays: number,
                 grade: string,
-                skill: any[] ) {
+                skill: any[],
+                jobId: number) {
     this.id = id;
     this.firstName = firstName;
     this.middleName = middleName;
@@ -48,5 +49,6 @@ export class Employee {
     this.workingDays = workingDays;
     this.grade = grade;
     this.skill = skill;
+    this.jobId = jobId;
   }
 }
