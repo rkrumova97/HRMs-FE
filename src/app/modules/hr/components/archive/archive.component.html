@@ -14,12 +14,11 @@
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 </head>
 <body>
-
-<div class="container-fluid">
+<div class="container">
   <div class="title">
     <h3>All employees</h3>
   </div>
-  <a href="/hr/archive" class="btn">Archive</a>
+  <a href="/hr/list" class="btn">Current employees</a>
   <div class="panel panel-default pa">
     <div class="row">
       <div class="table-responsive">
@@ -36,87 +35,43 @@
             <th>Working days</th>
             <th>Grade</th>
             <th>Skill</th>
-            <th>Actions</th>
           </tr>
           </thead>
           <tbody class="bg-light text-center">
-          <tr *ngFor="let employee of employees; let i = index" [attr.data-index]="0">
+          <tr *ngFor="let employee of employees" [attr.data-index]="0">
             <td> {{employee.id}} </td>
             <td>{{employee.firstName + " " + employee.middleName + " " + employee.lastName}}</td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.position}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'position', $event)">
-                {{employee.jobId}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.startDate}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'startDate', $event)">
-                  {{employee.startDate}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.salary}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'salary', $event)">
-                  {{employee.salary}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.vacationDays}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'vacationDays', $event)">
-                  {{employee.vacationDays}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.workingHours}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'workingHours', $event)">
-                  {{employee.workingHours}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.workingDays}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'workingDays', $event)">
-                  {{employee.workingDays}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.grade}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'grade', $event)">
-                  {{employee.grade}}
-              </span>
             </td>
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.skill}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'skill', $event)">
-                  {{employee.skill}}
-              </span>
-            </td>
-            <td class="td-actions">
-              <a rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm"
-                 href="/hr/profile/{{employee.id}}">
-                <i class="material-icons">person</i>
-              </a> &nbsp;
-              <a rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"
-                 data-original-title="" title="" (click)="toggle(employee)">
-                <i class="material-icons">edit</i>
-              </a>
-              <ngbd-modal-basic></ngbd-modal-basic>
             </td>
           </tr>
           </tbody>
         </table>
       </div>
-
-
     </div>
   </div>
 </div>
-<!-- Button trigger modal
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button>-->
-
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

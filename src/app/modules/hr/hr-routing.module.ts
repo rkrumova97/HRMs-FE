@@ -7,6 +7,7 @@ import {FireEmployeeComponent} from "./components/fire-employee/fire-employee.co
 import {GiveSalaryComponent} from "./components/give-salary/give-salary.component";
 import {ListEmployeesComponent} from "./components/list-employees/list-employees.component";
 import {EmployeeProfileComponent} from "./components/employee-profile/employee-profile.component";
+import {ArchiveComponent} from "./components/archive/archive.component";
 import {ProjectComponent} from "./components/project/project.component";
 
 export class HrRoutes {
@@ -56,6 +57,13 @@ export class HrRoutes {
     {
       path: 'profile/:id',
       component: EmployeeProfileComponent,
+      children: [
+        {path: 'hr', component: HrComponent}
+      ],
+    },
+    {
+      path: 'archive',
+      component: ArchiveComponent,
       children: [
         {path: 'hr', component: HrComponent}
       ],
