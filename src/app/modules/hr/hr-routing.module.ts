@@ -8,6 +8,7 @@ import {GiveSalaryComponent} from "./components/give-salary/give-salary.componen
 import {ListEmployeesComponent} from "./components/list-employees/list-employees.component";
 import {EmployeeProfileComponent} from "./components/employee-profile/employee-profile.component";
 import {ArchiveComponent} from "./components/archive/archive.component";
+import {ProjectComponent} from "./components/project/project.component";
 
 export class HrRoutes {
   static hrRoutes: Routes = [
@@ -63,6 +64,13 @@ export class HrRoutes {
     {
       path: 'archive',
       component: ArchiveComponent,
+      children: [
+        {path: 'hr', component: HrComponent}
+      ],
+    },
+    {
+      path: 'project',
+      component: ProjectComponent,
       children: [
         {path: 'hr', component: HrComponent}
       ],

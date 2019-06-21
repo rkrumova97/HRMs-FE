@@ -14,7 +14,8 @@
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
 </head>
 <body>
-<div class="container">
+
+<div class="container-fluid">
   <div class="title">
     <h3>All employees</h3>
   </div>
@@ -45,7 +46,7 @@
             <td>
               <span *ngIf="!employee.show" contenteditable="false">{{employee.position}}</span>
               <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'position', $event)">
-                {{employee.position}}
+                {{employee.jobId}}
               </span>
             </td>
             <td>
@@ -98,18 +99,24 @@
               <a rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"
                  data-original-title="" title="" (click)="toggle(employee)">
                 <i class="material-icons">edit</i>
-              </a> &nbsp;
-              <a rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm" href="/hr/fire/{{employee.id}}">
-                <i class="material-icons">close</i>
               </a>
+              <ngbd-modal-basic></ngbd-modal-basic>
             </td>
           </tr>
           </tbody>
         </table>
       </div>
+
+
     </div>
   </div>
 </div>
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>-->
+
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

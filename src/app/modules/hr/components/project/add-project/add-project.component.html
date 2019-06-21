@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="headerTitle">Add project</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <form method="post" class="needs-validation" novalidate>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="name" class="col-12 col-form-label">Name</label>
+            <div class="col-12">
+              <input class="form-control" id="name" required="required" placeholder="Type project's  name"
+                     name="name">
+            </div>
+            <div class="invalid-tooltip">
+              Please type valid name.
+            </div>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="startDate" class="col-12 col-form-label">Start date</label>
+            <div class="col-12">
+              <input class="form-control" id="startDate" required="required" placeholder="Type project's startDate"
+                     name="startDate">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <label for="endDate" class="col-12 col-form-label">End date</label>
+            <div class="col-12">
+              <input class="form-control" id="endDate" required="required" placeholder="Type project's end Date"
+                     name="endDate">
+            </div>
+          </div>
+
+          <!-- TODO Single select -->
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Department</label>
+            <div class="col-12">
+              <ng-multiselect-dropdown
+                placeholder="Select skills"
+                name="dropdownSkills"
+                [data]="skills"
+                [settings]="dropdownSettings">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Grades</label>
+            <div class="col-12">
+              <ng-multiselect-dropdown
+                placeholder="Select skills"
+                name="dropdownSkills"
+                [data]="skills"
+                [settings]="dropdownSettings">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Positions</label>
+            <div class="col-12">
+              <ng-multiselect-dropdown
+                placeholder="Select skills"
+                name="dropdownSkills"
+                [data]="skills"
+                [settings]="dropdownSettings">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="col-2 col-form-label">Skills</label>
+            <div class="col-12">
+              <ng-multiselect-dropdown
+                placeholder="Select skills"
+                name="dropdownSkills"
+                [data]="skills"
+                [settings]="dropdownSettings">
+              </ng-multiselect-dropdown>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit employee</button>
+
+      </form>
+    </div>
+  </div>
+</div>

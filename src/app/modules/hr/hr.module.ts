@@ -17,6 +17,13 @@ import { GiveSalaryComponent } from './components/give-salary/give-salary.compon
 import { VacationComponent } from './components/vacation/vacation.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { ArchiveComponent } from './components/archive/archive.component';
+import { ProjectComponent } from './components/project/project.component';
+import { AddProjectComponent } from './components/project/add-project/add-project.component';
+import {NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
+import { AddPositionComponent } from './components/project/add-position/add-position.component';
+import { AssignEmployeeComponent } from './components/project/assign-employee/assign-employee.component';
+import {NgbdModalBasicModule} from './components/list-employees/popup/popup.component.spec';
+// import { PopupComponent } from './components/list-employees/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +35,11 @@ import { ArchiveComponent } from './components/archive/archive.component';
     GiveSalaryComponent,
     VacationComponent,
     EmployeeProfileComponent,
+    ProjectComponent,
+    AddProjectComponent,
+    AddPositionComponent,
+    AssignEmployeeComponent,
+    // PopupComponent,
     ArchiveComponent,
   ],
   imports: [
@@ -36,7 +48,9 @@ import { ArchiveComponent } from './components/archive/archive.component';
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgbTabsetModule,
+    NgbdModalBasicModule
   ],
   bootstrap: [HrComponent]
 })

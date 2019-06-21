@@ -16,7 +16,7 @@ export class EmployeeProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute, http: HttpClient) { this.http = http; }
 
   ngOnInit() {
-    this.employee = new Employee(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+    this.employee = new Employee(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     this.id = this.route.snapshot.paramMap.get('id');
     this.http.get<Employee>('http://localhost:8080/profile/' + this.id).subscribe(res => {
       this.employee = res;
