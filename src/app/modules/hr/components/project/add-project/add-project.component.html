@@ -15,7 +15,8 @@
             <label for="name" class="col-12 col-form-label">Name</label>
             <div class="col-12">
               <input class="form-control" id="name" required="required" placeholder="Type project's  name"
-                     name="name">
+                     name="name"
+                     [(ngModel)]="project.name">
             </div>
             <div class="invalid-tooltip">
               Please type valid name.
@@ -26,35 +27,23 @@
           </div>
 
           <div class="form-group col-md-6">
-            <label for="startDate" class="col-12 col-form-label">Start date</label>
+            <label for="starting-date" class="col-12 col-form-label">Starting Date</label>
             <div class="col-12">
-              <input class="form-control" id="startDate" required="required" placeholder="Type project's startDate"
+              <input class="form-control" placeholder="First working day" type="date" id="starting-date"
+                     [(ngModel)]="project.startingDate"
                      name="startDate">
             </div>
           </div>
 
-        </div>
 
-        <div class="form-row">
-
-          <div class="form-group col-md-6">
-            <label for="endDate" class="col-12 col-form-label">End date</label>
-            <div class="col-12">
-              <input class="form-control" id="endDate" required="required" placeholder="Type project's end Date"
-                     name="endDate">
-            </div>
-          </div>
-
-          <!-- TODO Single select -->
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Department</label>
             <div class="col-12">
-              <ng-multiselect-dropdown
-                placeholder="Select skills"
-                name="dropdownSkills"
-                [data]="skills"
-                [settings]="dropdownSettings">
-              </ng-multiselect-dropdown>
+              <select [(ngModel)]="project.departments" name="first" id="working-days-input" class="custom-select">
+                <option *ngFor="let o of departments" [value]="o">
+                  {{o}}
+                </option>
+              </select>
             </div>
           </div>
 
@@ -62,21 +51,26 @@
             <label class="col-2 col-form-label">Grades</label>
             <div class="col-12">
               <ng-multiselect-dropdown
-                placeholder="Select skills"
+                placeholder="Select grades"
                 name="dropdownSkills"
-                [data]="skills"
+                [data]="grades"
+                [(ngModel)]="project.grades"
                 [settings]="dropdownSettings">
               </ng-multiselect-dropdown>
             </div>
           </div>
+        </div>
+
+        <div class="form-row">
 
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Positions</label>
             <div class="col-12">
               <ng-multiselect-dropdown
-                placeholder="Select skills"
+                placeholder="Select positions"
                 name="dropdownSkills"
-                [data]="skills"
+                [data]="positions"
+                [(ngModel)]="project.positions"
                 [settings]="dropdownSettings">
               </ng-multiselect-dropdown>
             </div>
@@ -89,15 +83,16 @@
                 placeholder="Select skills"
                 name="dropdownSkills"
                 [data]="skills"
+                [(ngModel)]="project.skills"
                 [settings]="dropdownSettings">
               </ng-multiselect-dropdown>
             </div>
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit employee</button>
-
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit project</button>
       </form>
+
     </div>
   </div>
 </div>

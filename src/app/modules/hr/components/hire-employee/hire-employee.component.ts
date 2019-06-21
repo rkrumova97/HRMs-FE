@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Employee} from '../../model/employee.model';
 import {Query} from '../../../core/query.model';
-import {Route, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-hire-employee',
@@ -35,11 +35,7 @@ export class HireEmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.employee = new Employee(null,
-      null, null, null,
-      null, null, null,
-      null, null, null,
-      null, null, null, null, null, null);
+    this.employee = new Employee();
 
     this.genders = ['Male', 'Female', 'Other'];
 

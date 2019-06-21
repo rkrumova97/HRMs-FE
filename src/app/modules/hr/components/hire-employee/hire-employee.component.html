@@ -167,6 +167,7 @@
               <select [(ngModel)]="employee.workingDays" name="first" id="working-days-input" class="custom-select">
                 <option *ngFor="let o of workingDays" [value]="o.value">
                   {{o.name}}
+                  {{o.name}}
                 </option>
               </select>
               <div class="invalid-feedback">Invalid selection!</div>

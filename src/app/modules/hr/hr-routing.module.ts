@@ -3,12 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import {HrComponent} from './hr.component';
 import {HireEmployeeComponent} from './components/hire-employee/hire-employee.component';
 import {InterviewPersonComponent} from './components/interview-person/interview-person.component';
-import {FireEmployeeComponent} from "./components/fire-employee/fire-employee.component";
-import {GiveSalaryComponent} from "./components/give-salary/give-salary.component";
-import {ListEmployeesComponent} from "./components/list-employees/list-employees.component";
-import {EmployeeProfileComponent} from "./components/employee-profile/employee-profile.component";
-import {ArchiveComponent} from "./components/archive/archive.component";
-import {ProjectComponent} from "./components/project/project.component";
+import {GiveSalaryComponent} from './components/give-salary/give-salary.component';
+import {ListEmployeesComponent} from './components/list-employees/list-employees.component';
+import {EmployeeProfileComponent} from './components/employee-profile/employee-profile.component';
+import {ArchiveComponent} from './components/archive/archive.component';
+import {ProjectComponent} from './components/project/project.component';
 
 export class HrRoutes {
   static hrRoutes: Routes = [
@@ -29,13 +28,6 @@ export class HrRoutes {
     {
       path: 'interview',
       component: InterviewPersonComponent,
-      children: [
-        {path: 'hr', component: HrComponent}
-      ],
-    },
-    {
-      path: 'fire',
-      component: FireEmployeeComponent,
       children: [
         {path: 'hr', component: HrComponent}
       ],

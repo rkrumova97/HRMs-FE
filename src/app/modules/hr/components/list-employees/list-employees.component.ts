@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Employee} from '../../model/employee.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {PopupComponent} from './popup/popup.component';
 
 @Component({
   selector: 'app-list-employees',
@@ -13,14 +15,14 @@ export class ListEmployeesComponent implements OnInit {
   http: HttpClient;
   isClicked: boolean;
   router: Router;
-  isPopped = true;
+  closeResult: string;
+  modalService: NgbModal;
 
-  constructor(http: HttpClient, router: Router) {
+  constructor(http: HttpClient, router: Router, modalService: NgbModal) {
     this.http = http;
     this.router = router;
+    this.modalService = modalService;
   }
-
-
 
   ngOnInit() {
     this.isClicked = true;
@@ -48,12 +50,9 @@ export class ListEmployeesComponent implements OnInit {
       });
   }
 
-  /*open(){
-    // const modalRef = this.modalService.open(ModalComponent);
-    const modalRef = this.modalService.open(ModalAboutComponent);
-    modalRef.componentInstance.title = 'About';
-    console.log("Popped!");
-  }*/
-
+  open() {
+    const modalRef = this.modalService.open(PopupComponent);
+    modalRef.componentInstance.name = 'World';
+  }
 
 }
