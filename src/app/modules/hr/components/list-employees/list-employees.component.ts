@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Employee} from '../../model/employee.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-employees',
@@ -11,16 +12,17 @@ export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
   http: HttpClient;
   isClicked: boolean;
+  router: Router;
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, router: Router) {
     this.http = http;
+    this.router = router;
   }
 
   ngOnInit() {
     this.isClicked = true;
     this.http.get<Employee[]>('http://localhost:8080/employees').subscribe(res => {
       this.employees = res;
-      console.log(this.employees);
     });
   }
 
@@ -31,8 +33,15 @@ export class ListEmployeesComponent implements OnInit {
 
   updateList(employee: Employee, property: string, event: any) {
     employee[property] = event.target.textContent;
-    console.log(this.employees);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json;charset=UTF-8',
+      })
+    };
+    console.log(JSON.stringify(this.employees));
+    this.http.post<Employee>('http://localhost:8080/employees', JSON.stringify(this.employees), httpOptions)
+      .subscribe(r => {
+        console.log(r);
+      });
   }
-
-
 }
