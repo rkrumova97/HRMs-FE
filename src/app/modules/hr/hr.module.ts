@@ -46,6 +46,9 @@ import {PopupComponent} from './components/list-employees/popup/popup.component'
     NgbTabsetModule,
     NgbModule
   ],
+  entryComponents:[
+    PopupComponent
+  ],
   bootstrap: [HrComponent]
 })
 export class HrModule {
