@@ -12,14 +12,14 @@
         <div class="form-row">
 
           <div class="form-group col-md-6">
-            <label for="firstName" class="col-12 col-form-label">Name</label>
+            <label for="name" class="col-12 col-form-label">Name</label>
             <div class="col-12">
-              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name"
+              <input class="form-control" id="name" required="required" placeholder="Type position's name"
                      name="firstName"
-                     [(ngModel)]="employee.firstName">
+                     [(ngModel)]="position.name">
             </div>
             <div class="invalid-tooltip">
-              Please type valid first name.
+              Please type valid name.
             </div>
             <div class="valid-tooltip">
               Looks good!
@@ -27,42 +27,31 @@
           </div>
 
           <div class="form-group col-md-6">
-            <label for="lastName" class="col-12 col-form-label">Employee</label>
+            <label for="jobId" class="col-12 col-form-label">Job ID</label>
             <div class="col-12">
-              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name"
-                     name="middleName"
-                     [(ngModel)]="employee.middleName">
+              <input class="form-control" id="jobId" required="required" placeholder="Type position's job id"
+                     name="jobId"
+                     [(ngModel)]="position.jobId">
             </div>
           </div>
-
         </div>
 
         <div class="form-row">
 
           <div class="form-group col-md-6">
-            <label for="middleName" class="col-12 col-form-label">Job ID</label>
+            <label class="col-2 col-form-label">Department</label>
             <div class="col-12">
-              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name"
-                     name="lastName"
-                     [(ngModel)]="employee.lastName">
+              <select [(ngModel)]="position.department" name="first" id="working-days-input" class="custom-select">
+                <option *ngFor="let o of departments" [value]="o">
+                  {{o}}
+                </option>
+              </select>
             </div>
           </div>
 
-          <div class="form-group col-md-6">
-            <label class="col-2 col-form-label">Skill</label>
-            <div class="col-12">
-              <ng-multiselect-dropdown
-                placeholder="Select skills"
-                name="dropdownSkills"
-                [data]="skills"
-                [(ngModel)]="employee.skill"
-                [settings]="dropdownSettings">
-              </ng-multiselect-dropdown>
-            </div>
-          </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit employee</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit position</button>
 
       </form>
     </div>

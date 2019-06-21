@@ -18,37 +18,22 @@ export class Employee {
   position: any[];
   username: any;
   jobId: number;
-  constructor(  id: number,
-                firstName: string,
-                middleName: string,
-                lastName: string,
-                age: number,
-                gender: string,
-                address: string,
-                email: string,
-                salary: number,
-                startDate: any,
-                vacationDays: number,
-                woringHours: number,
-                workingDays: number,
-                grade: string,
-                skill: any[],
-                jobId: number) {
-    this.id = id;
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.age = age;
-    this.gender = gender;
-    this.address = address;
-    this.email = email;
-    this.salary = salary;
-    this.startDate = startDate;
-    this.vacationDays = vacationDays;
-    this.workingHours = woringHours;
-    this.workingDays = workingDays;
-    this.grade = grade;
-    this.skill = skill;
-    this.jobId = jobId;
+  constructor() {
+    this.id = null;
+    this.firstName = null;
+    this.middleName = null;
+    this.lastName = null;
+    this.age = null;
+    this.gender = null;
+    this.address = null;
+    this.email = null;
+    this.salary = null;
+    this.startDate = null;
+    this.vacationDays = null;
+    this.workingHours = null;
+    this.workingDays = null;
+    this.grade = null;
+    this.skill = null;
+    this.jobId = null;
   }
 }
