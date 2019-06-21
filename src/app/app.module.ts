@@ -5,6 +5,7 @@ import {NgModule} from '@angular/core';
 import {CoreModule} from './modules/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

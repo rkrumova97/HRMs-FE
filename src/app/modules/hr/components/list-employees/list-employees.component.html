@@ -100,7 +100,10 @@
                  data-original-title="" title="" (click)="toggle(employee)">
                 <i class="material-icons">edit</i>
               </a>
-              <ngbd-modal-basic></ngbd-modal-basic>
+              &nbsp;
+              <a rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm" (click)="open(content)">
+                <i class="material-icons">close</i>
+              </a>
             </td>
           </tr>
           </tbody>
@@ -111,12 +114,10 @@
     </div>
   </div>
 </div>
-<!-- Button trigger modal
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button>-->
 
-
+<ng-template>
+<app-popup></app-popup>
+</ng-template>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
