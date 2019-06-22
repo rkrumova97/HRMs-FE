@@ -6,11 +6,17 @@ import {CoreModule} from './modules/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {PopupComponent} from './modules/hr/components/list-employees/popup/popup.component';
+import {HrModule} from './modules/hr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
+  entryComponents:[PopupComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,7 +24,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
-    NgbModule
+    NgbModule,
+    HrModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

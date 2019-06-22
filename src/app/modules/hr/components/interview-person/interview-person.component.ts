@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 
-
 @Component({
   selector: 'app-interview-person',
   templateUrl: './interview-person.component.html',
@@ -33,7 +32,7 @@ export class InterviewPersonComponent implements OnInit {
     if (!this.person) {
       this.person = new PersonModel();
     }
-    this.setValidation();
+    // this.setValidation();
 
     this.genders = ['Male', 'Female', 'Other'];
   }
@@ -50,31 +49,8 @@ export class InterviewPersonComponent implements OnInit {
       });
   }
 
-  // onSubmit() {
-  //   console.log(JSON.stringify(this.person));
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json;charset=UTF-8',
-  //     })
-  //   };
-  //   this.http.post<Query>('http://localhost:8080/addPerson', JSON.stringify(this.person), httpOptions)
-  //     .subscribe(r => {
-  //       console.log(r);
-  //       this.router.navigate(['/hr']);
-  //     });
-  // }
-
-  get f() { return this.addForm.controls; }
-
   cancelAdd() {
     this.location.back();
-  }
-
-  mapUser() {
-    this.person.firstName = this.addForm.get('firstName').value;
-    this.person.middleName = this.addForm.get('middleName').value;
-    this.person.lastName = this.addForm.get('lastName').value;
-    this.person.email = this.addForm.get('email').value;
   }
 
   addPerson(valid: boolean) {
@@ -89,7 +65,6 @@ export class InterviewPersonComponent implements OnInit {
       };
       this.http.post<Query>('http://localhost:8080/addPerson', JSON.stringify(this.person), httpOptions)
         .subscribe(r => {
-          console.log(r);
           this.router.navigate(['/hr']);
         });
     }

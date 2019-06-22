@@ -19,6 +19,9 @@ import {NgbModule, NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddPositionComponent} from './components/project/add-position/add-position.component';
 import {AssignEmployeeComponent} from './components/project/assign-employee/assign-employee.component';
 import {PopupComponent} from './components/list-employees/popup/popup.component';
+import {ListUploadComponent} from '../upload/list-upload.component';
+import {FormUploadComponent} from '../upload/form-upload.component';
+import {DetailsUploadComponent} from '../upload/details-upload.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +36,14 @@ import {PopupComponent} from './components/list-employees/popup/popup.component'
     AddProjectComponent,
     AddPositionComponent,
     AssignEmployeeComponent,
-    PopupComponent,
     ArchiveComponent,
+    PopupComponent,
+    DetailsUploadComponent,
+    FormUploadComponent,
+    ListUploadComponent
+  ],
+  entryComponents: [
+    PopupComponent,
   ],
   imports: [
     CommonModule,
