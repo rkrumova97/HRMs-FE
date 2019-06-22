@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Employee} from '../../model/employee.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PopupComponent} from './popup/popup.component';
+import {last} from "rxjs/operators";
 
 @Component({
   selector: 'app-list-employees',
@@ -13,10 +14,11 @@ import {PopupComponent} from './popup/popup.component';
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
   http: HttpClient;
+  employee: Employee;
   isClicked: boolean;
   router: Router;
-  closeResult: string;
   modalService: NgbModal;
+
 
   constructor(http: HttpClient, router: Router, modalService: NgbModal) {
     this.http = http;
@@ -29,6 +31,7 @@ export class ListEmployeesComponent implements OnInit {
     this.http.get<Employee[]>('http://localhost:8080/employees').subscribe(res => {
       this.employees = res;
     });
+
   }
 
   toggle(employee): boolean {
@@ -50,9 +53,11 @@ export class ListEmployeesComponent implements OnInit {
       });
   }
 
-  open() {
-    const modalRef = this.modalService.open(PopupComponent);
-    modalRef.componentInstance.name = 'World';
+  open(firstName, middleName, lastName, id) {
+    const modalRef = this.modalService.open(PopupComponent, {centered:true});
+    modalRef.componentInstance.firstName = firstName;
+    modalRef.componentInstance.middleName = middleName;
+    modalRef.componentInstance.lastName = lastName;
+    modalRef.componentInstance.id = id;
   }
-
 }
