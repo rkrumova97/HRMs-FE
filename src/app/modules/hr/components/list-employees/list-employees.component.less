@@ -1,17 +1,92 @@
-html * {
-  -webkit-font-smoothing: antialiased;
-}
-
-* {
+html {
+  height: 100%;
   margin: 0;
-  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Work Sans', sans-serif;
 }
 
 body {
-  background: #fffde8 !important;
-  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  padding-top: 26px;
+  background-color: #f0f192;
+  background-image: url('src/assets/background-image.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container-fluid{
+  min-height: calc(100vh - 70px);
+}
+.link {
+  text-decoration: none;
 }
 
+#titleContainer {
+  border-left: 3px solid #FFC107;
+  border-right: 3px solid #FFC107;
+  min-height: 54px;
+  background-color: #0c5c7d;
+  border-radius: 3px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.titleDecoration {
+  color: #FFFFFF;
+  text-transform: capitalize;
+}
+
+.button {
+  background: #0c5c7d;
+  overflow: hidden;
+  text-align: center;
+  transition: .2s;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(12, 110, 148, 0.2);
+}
+
+.btnTwo {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin-top: -100px;
+  padding-top: 2px;
+  background-color: #FFC107;
+  left: -250px;
+  transition: .3s;
+}
+
+.btnText {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: .3s;
+  margin-top: 14px;
+}
+
+.btnText2 {
+  margin-top: 57px;
+  margin-right: -130px;
+
+}
+img{
+  width: 30px;
+  height: 30px;
+}
+.button:hover .btnTwo { /*When hovering over .button change .btnTwo*/
+  left: -130px;
+}
+
+.button:hover .btnText { /*When hovering over .button change .btnText*/
+  margin-left: 65px;
+}
+
+.button:active { /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(12, 110, 148, 0.3);
+}
 a {
   color: #3e3947 !important;
   text-decoration: none;
@@ -194,29 +269,26 @@ small {
 
 
 .table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 16px;
   background-color: transparent;
 }
 
 .table thead tr th {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .table > thead > tr > th {
   padding: 12px 8px;
   vertical-align: middle;
-  color: #0c99c1;
+  color: #0c5c7d;
 }
 
 .table > tbody > tr > td {
   padding: 12px 8px;
   vertical-align: middle;
-  background-color:#fafdcb;
+  background-color: #fafdcb;
   font-size: 14px;
-  color: #22b9ca;
+  color: #23aabb;
 }
 
 .table .td-actions .btn {
@@ -225,5 +297,5 @@ small {
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: #fff78f ;
+  background-color: #fff78f;
 }
