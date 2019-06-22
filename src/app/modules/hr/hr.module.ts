@@ -19,7 +19,6 @@ import {NgbModule, NgbTabsetModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddPositionComponent} from './components/project/add-position/add-position.component';
 import {AssignEmployeeComponent} from './components/project/assign-employee/assign-employee.component';
 import {PopupComponent} from './components/list-employees/popup/popup.component';
-import {PopupModule} from "ng2-opd-popup";
 
 @NgModule({
   declarations: [
@@ -37,7 +36,7 @@ import {PopupModule} from "ng2-opd-popup";
     ArchiveComponent,
     PopupComponent,
   ],
-  entryComponents:[
+  entryComponents: [
     PopupComponent,
   ],
   imports: [
@@ -49,9 +48,6 @@ import {PopupModule} from "ng2-opd-popup";
     NgMultiSelectDropDownModule.forRoot(),
     NgbTabsetModule,
     NgbModule,
-  ],
-  entryComponents:[
-    PopupComponent
   ],
   bootstrap: [HrComponent]
 })
