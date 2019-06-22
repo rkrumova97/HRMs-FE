@@ -6,9 +6,10 @@ import {CoreModule} from './modules/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {PopupComponent} from "./modules/hr/components/list-employees/popup/popup.component";
-import {PopupModule} from "ng2-opd-popup";
-import {HrModule} from "./modules/hr";
+import {PopupComponent} from './modules/hr/components/list-employees/popup/popup.component';
+import {HrModule} from './modules/hr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import {HrModule} from "./modules/hr";
     ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgbModule,
-    HrModule
-
+    HrModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
