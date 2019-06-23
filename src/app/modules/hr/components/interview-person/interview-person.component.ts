@@ -21,6 +21,8 @@ export class InterviewPersonComponent implements OnInit {
   submitted = false;
   isAdding = false;
 
+  interviewInvite: any;
+
 
   constructor(private router: Router,
               private http: HttpClient,
@@ -56,8 +58,6 @@ export class InterviewPersonComponent implements OnInit {
   addPerson(valid: boolean) {
     this.submitted = true;
     if (valid) {
-      console.log(this.person);
-      this.isAdding = true;
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json;charset=UTF-8',
@@ -65,7 +65,16 @@ export class InterviewPersonComponent implements OnInit {
       };
       this.http.post<Query>('http://localhost:8080/addPerson', JSON.stringify(this.person), httpOptions)
         .subscribe(r => {
-          this.router.navigate(['/hr']);
+
+          this.interviewInvite = {
+            email: this.person.email,
+            interviewDate: this.person.interviewDate,
+            name: this.person.firstName + ' ' + this.person.middleName + ' ' + this.person.lastName};
+
+          this.http.post<Query>('http://localhost:8080/sendInterviewInvite', JSON.stringify(this.interviewInvite), httpOptions)
+            .subscribe(innerR => {
+              this.router.navigate(['/hr']);
+            });
         });
     }
   }

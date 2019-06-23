@@ -22,6 +22,8 @@ import {PopupComponent} from './components/list-employees/popup/popup.component'
 import {ListUploadComponent} from '../upload/list-upload.component';
 import {FormUploadComponent} from '../upload/form-upload.component';
 import {DetailsUploadComponent} from '../upload/details-upload.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,10 @@ import {DetailsUploadComponent} from '../upload/details-upload.component';
     ReactiveFormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgbTabsetModule,
-    NgbModule
+    NgbModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    AngularFontAwesomeModule
   ],
   bootstrap: [HrComponent]
 })

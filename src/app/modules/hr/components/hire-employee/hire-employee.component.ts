@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Employee} from '../../model/employee.model';
 import {Query} from '../../../core/query.model';
 import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-hire-employee',
@@ -18,6 +20,12 @@ export class HireEmployeeComponent implements OnInit {
   genders: string[];
   router: Router;
   dropdownSettings = {};
+
+  // Forms validation
+  addForm: FormGroup;
+  submitted = false;
+  isAdding = false;
+
   workingDays = [
     { name: 'Three days a week', value: 3 },
     { name: 'Four days a week', value: 4 },
@@ -29,12 +37,15 @@ export class HireEmployeeComponent implements OnInit {
     { name: 'Eight hours a day', value: 8 }
   ];
 
-  constructor(http: HttpClient, router: Router) {
+  constructor(http: HttpClient, router: Router,
+              private formBuilder: FormBuilder,
+              private location: Location) {
     this.http = http;
     this.router = router;
   }
 
   ngOnInit() {
+    // @ts-ignore
     this.employee = new Employee();
 
     this.genders = ['Male', 'Female', 'Other'];
@@ -60,17 +71,23 @@ export class HireEmployeeComponent implements OnInit {
     };
   }
 
-  onSubmit() {
-    console.log(JSON.stringify(this.employee));
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json;charset=UTF-8',
-      })
-    };
-    this.http.post<Query>('http://localhost:8080/hire', JSON.stringify(this.employee), httpOptions)
-      .subscribe(r => {
-        console.log(r);
-        this.router.navigate(['/hr']);
-      });
+  cancelAdd() {
+    this.location.back();
+  }
+
+  addEmployee(valid: boolean) {
+    this.submitted = true;
+    if (valid) {
+      // this.isAdding = true;
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json;charset=UTF-8',
+        })
+      };
+      this.http.post<Query>('http://localhost:8080/hire', JSON.stringify(this.employee), httpOptions)
+        .subscribe(r => {
+          this.router.navigate(['/hr']);
+        });
+    }
   }
 }
