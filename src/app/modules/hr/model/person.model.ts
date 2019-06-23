@@ -8,4 +8,5 @@ export class PersonModel {
   area: string;
   city: string;
   address: string;
+  interviewDate: any;
 }

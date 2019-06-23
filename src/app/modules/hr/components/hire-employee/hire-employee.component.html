@@ -7,31 +7,41 @@
 
   <div class="row">
     <div class="col-12">
-      <form method="post" class="needs-validation" novalidate>
+      <form *ngIf="employee" #employeeForm="ngForm">
 
         <div class="form-row">
 
           <div class="form-group col-md-6">
             <label for="firstName" class="col-12 col-form-label">First name</label>
             <div class="col-12">
-              <input class="form-control" id="firstName" required="required" placeholder="Type employee's first name"
+              <input class="form-control"
+                     id="firstName"
+                     required
+                     #firstName="ngModel"
+                     placeholder="Type employee's first name"
                      name="firstName"
-                     [(ngModel)]="employee.firstName">
-            </div>
-            <div class="invalid-tooltip">
-              Please type valid first name.
-            </div>
-            <div class="valid-tooltip">
-              Looks good!
+                     [(ngModel)]="employee.firstName"
+                     [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched || submitted) }" />
+              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)" class="invalid-feedback">
+                <span>First name is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
             <label for="lastName" class="col-12 col-form-label">Middle name</label>
             <div class="col-12">
-              <input class="form-control" id="middleName" required="required" placeholder="Type employee's middle name"
+              <input type="text"
+                     class="form-control"
+                     id="middleName"
                      name="middleName"
-                     [(ngModel)]="employee.middleName">
+                     [(ngModel)]="employee.middleName"
+                     required
+                     #middleName="ngModel"
+                     [ngClass]="{ 'is-invalid': middleName.invalid && (middleName.dirty || middleName.touched || submitted) }" />
+              <div *ngIf="middleName.invalid && (middleName.dirty || middleName.touched || submitted)" class="invalid-feedback">
+                <span>Middle name is required field.</span>
+              </div>
             </div>
           </div>
 
@@ -42,19 +52,33 @@
           <div class="form-group col-md-6">
             <label for="middleName" class="col-12 col-form-label">Last name</label>
             <div class="col-12">
-              <input class="form-control" id="lastName" required="required" placeholder="Type employee's last name"
+              <input type="text"
+                     class="form-control"
+                     id="lastName"
                      name="lastName"
-                     [(ngModel)]="employee.lastName">
+                     [(ngModel)]="employee.lastName"
+                     required
+                     #lastName="ngModel"
+                     [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched || submitted) }" />
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)" class="invalid-feedback">
+                <span>Last name is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="age-input" class="col-12 col-form-label">Age</label>
+            <label for="ageInput" class="col-12 col-form-label">Age</label>
             <div class="col-12">
-              <input class="form-control" type="number" min="18" max="99" required="required" size="2" maxlength="2"
+              <input class="form-control" type="number" min="18" max="99" size="2" maxlength="2"
                      placeholder="Employee age"
-                     id="age-input" name="age"
-                     [(ngModel)]="employee.age">
+                     id="ageInput" name="ageInput"
+                     required
+                     #ageInput="ngModel"
+                     [(ngModel)]="employee.age"
+                     [ngClass]="{ 'is-invalid': ageInput.invalid && (ageInput.dirty || ageInput.touched || submitted) }"/>
+              <div *ngIf="ageInput.invalid && (ageInput.dirty || ageInput.touched || submitted)" class="invalid-feedback">
+                <span>Age is required field.</span>
+              </div>
             </div>
           </div>
 
@@ -63,6 +87,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Gender</label>
+            <div class="col-12">
             <ng-container *ngFor="let gender of genders">
               <div class="custom-control custom-radio">
                 <input type="radio" id="{{gender}}" name="gg1" class="custom-control-input" [value]="gender.valueOf()"
@@ -70,56 +95,87 @@
                 <label class="custom-control-label" for="{{gender}}">{{gender}}</label>
               </div>
             </ng-container>
+            <div *ngIf="!employee.gender && submitted" class="invalid-feedback d-block">
+              <span>Gender is required field.</span>
+            </div>
+            </div>
           </div>
 
 
           <div class="form-group col-md-6">
             <label for="address" class="col-12 col-form-label">Address</label>
             <div class="col-12">
-              <input class="form-control" type="text" required="required"
+              <input class="form-control" type="text"
                      placeholder="Employee personal address"
                      id="address"
                      name="address"
-                     [(ngModel)]="employee.address">
+                     [(ngModel)]="employee.address"
+                      required
+                      #address="ngModel"
+                     [ngClass]="{ 'is-invalid': address.invalid && (address.dirty || address.touched || submitted) }">
+              <div *ngIf="address.invalid && (address.dirty || address.touched || submitted)" class="invalid-feedback">
+                <span>Address is required field.</span>
+              </div>
             </div>
           </div>
 
         </div>
 
+        <div class="form-row">
         <div class="form-group col-md-6">
             <label for="jobID" class="col-12 col-form-label">JobID</label>
             <div class="col-12">
-              <input class="form-control" type="text" required="required"
+              <input class="form-control" type="text"
+                     required
                      placeholder="Employee personal jobID"
                      id="jobID"
                      name="jobID"
-                     [(ngModel)]="employee.jobId">
+                     [(ngModel)]="employee.jobId"
+                     #jobID="ngModel"
+                     [ngClass]="{ 'is-invalid': jobID.invalid && (jobID.dirty || jobID.touched || submitted) }" />
+              <div *ngIf="jobID.invalid && (jobID.dirty || jobID.touched || submitted)" class="invalid-feedback">
+                <span>Employee personal jobID is required field.</span>
+              </div>
             </div>
           </div>
 
-        <div class="form-row">
-
           <div class="form-group col-md-6">
-            <label for="exampleInputEmail1" class="col-12 col-form-label">Email address</label>
+            <label for="email" class="col-12 col-form-label">Email address</label>
             <div class="col-12">
-              <input class="form-control" id="exampleInputEmail1" type="email" required="required"
-                     placeholder="Personal employee email"
+              <input type="text"
+                     class="form-control"
+                     id="email"
                      name="email"
-                     [(ngModel)]="employee.email">
+                     [(ngModel)]="employee.email"
+                     required
+                     #email="ngModel"
+                     [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched || submitted) }" />
+              <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="invalid-feedback">
+                <span>Email is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="salary-input" class="col-12 col-form-label">Salary</label>
+            <label for="salary" class="col-12 col-form-label">Salary</label>
             <div class="col-12">
               <div class="input-group">
-                <input class="form-control" placeholder="Employee starting salary" type="number" min="1"
-                       max="100000" id="salary-input" required="required"
-                       aria-label="Dollar amount (with dot and two decimal places)"
+                <input class="form-control"
+                       placeholder="Employee starting salary"
+                       type="number"
+                       min="1"
+                       max="100000"
+                       id="salary"
+                       required
                        name="salary"
-                       [(ngModel)]="employee.salary">
+                       [(ngModel)]="employee.salary"
+                       #salary="ngModel"
+                       [ngClass]="{ 'is-invalid': salary.invalid && (salary.dirty || salary.touched || submitted) }" />
                 <div class="input-group-append">
                   <span class="input-group-text">лв.</span>
+                </div>
+                <div *ngIf="salary.invalid && (salary.dirty || salary.touched || submitted)" class="invalid-feedback">
+                  <span>Salary is required field.</span>
                 </div>
               </div>
             </div>
@@ -129,20 +185,41 @@
         <div class="form-row">
 
           <div class="form-group col-md-6">
-            <label for="starting-date" class="col-12 col-form-label">Starting Date</label>
+            <label for="startingDate" class="col-12 col-form-label">Starting Date</label>
             <div class="col-12">
-              <input class="form-control" placeholder="First working day" type="date" id="starting-date"
+              <input class="form-control"
+                     placeholder="First working day"
+                     type="date"
+                     id="startingDate"
+                     required
                      [(ngModel)]="employee.startDate"
-                     name="startDate">
+                     name="startingDate"
+                     required
+                     #startingDate="ngModel"
+                     [ngClass]="{ 'is-invalid': startingDate.invalid && (startingDate.dirty || startingDate.touched || submitted) }"/>
+              <div *ngIf="startingDate.invalid && (startingDate.dirty || startingDate.touched || submitted)" class="invalid-feedback d-block">
+                <span>Starting Date is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="vacation-days-input" class="col-12 col-form-label">Vacation Days</label>
+            <label for="vacation" class="col-12 col-form-label">Vacation Days</label>
             <div class="col-12">
-              <input class="form-control" type="number" id="vacation-days-input" placeholder="Vacation days" min="0"
-                     max="25" required="required" [(ngModel)]="employee.vacationDays"
-                     name="vacation">
+              <input type="number"
+                     placeholder="Vacation days"
+                     min="0"
+                     max="25"
+                     class="form-control"
+                     id="vacation"
+                     name="vacation"
+                     [(ngModel)]="employee.vacationDays"
+                     required
+                     #vacation="ngModel"
+                     [ngClass]="{ 'is-invalid': vacation.invalid && (vacation.dirty || vacation.touched || submitted) }" />
+              <div *ngIf="vacation.invalid && (vacation.dirty || vacation.touched || submitted)" class="invalid-feedback">
+                <span>Vacation days is required field.</span>
+              </div>
             </div>
           </div>
 
@@ -150,27 +227,44 @@
 
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="working-hours-input" class="col-12 col-form-label">Working Hours</label>
+            <label for="workingHoursSelect" class="col-12 col-form-label">Working Hours</label>
             <div class="col-12">
-              <select [(ngModel)]="employee.workingHours" name="first" id="working-hours-input" class="custom-select">
-                <option *ngFor="let o of workingHours" [value]="o.value">
+              <select
+                [(ngModel)]="employee.workingHours"
+                name="workingHoursSelect"
+                id="workingHoursSelect"
+                class="custom-select"
+                required
+                #workingHoursSelect="ngModel"
+                [ngClass]="{ 'is-invalid': workingHoursSelect.invalid && (workingHoursSelect.dirty || workingHoursSelect.touched || submitted) }">
+                <option *ngFor="let o of workingHours" [ngValue]="o.value">
                   {{o.name}}
                 </option>
               </select>
-              <div class="invalid-feedback">Invalid selection!</div>
+              <div *ngIf="workingHoursSelect.invalid && (workingHoursSelect.dirty || workingHoursSelect.touched || submitted)" class="invalid-feedback d-block">
+                <span>Working Hours is required field.</span>
+              </div>
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="working-days-input" class="col-12 col-form-label">Working Days</label>
+            <label for="workingDaysSelect" class="col-12 col-form-label">Working Days</label>
             <div class="col-12">
-              <select [(ngModel)]="employee.workingDays" name="first" id="working-days-input" class="custom-select">
+              <select [(ngModel)]="employee.workingDays"
+                      name="workingDaysSelect"
+                      id="workingDaysSelect"
+                      class="custom-select"
+                      required
+                      #workingDaysSelect="ngModel"
+                      [ngClass]="{ 'is-invalid': workingDaysSelect.invalid && (workingDaysSelect.dirty || workingDaysSelect.touched || submitted) }">
                 <option *ngFor="let o of workingDays" [value]="o.value">
                   {{o.name}}
                   {{o.name}}
                 </option>
               </select>
-              <div class="invalid-feedback">Invalid selection!</div>
+              <div *ngIf="workingDaysSelect.invalid && (workingDaysSelect.dirty || workingDaysSelect.touched || submitted)" class="invalid-feedback d-block">
+                <span>Working Days is required field.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -178,13 +272,18 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Grade</label>
-            <ng-container *ngFor="let grade of grades">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="{{grade}}" name="gg" class="custom-control-input"
-                       [value]="grade.valueOf()" [(ngModel)]="employee.grade">
-                <label class="custom-control-label" for="{{grade}}">{{grade}}</label>
+            <div class="col-12">
+              <ng-container *ngFor="let grade of grades">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="{{grade}}" name="gg" class="custom-control-input"
+                         [value]="grade.valueOf()" [(ngModel)]="employee.grade">
+                  <label class="custom-control-label" for="{{grade}}">{{grade}}</label>
+                </div>
+              </ng-container>
+              <div *ngIf="!employee.grade && submitted" class="invalid-feedback d-block">
+                <span>Grade is required field.</span>
               </div>
-            </ng-container>
+            </div>
           </div>
 
           <div class="form-group col-md-6">
@@ -201,7 +300,8 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit employee</button>
+        <button type="submit" class="btn btn-primary" [disabled]="isAdding" (click)="addEmployee(employeeForm.valid)">Submit employee</button>
+        <button type="button" class="btn btn-primary" (click)="cancelAdd()">Back</button>
 
       </form>
     </div>

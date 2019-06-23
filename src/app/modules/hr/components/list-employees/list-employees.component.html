@@ -16,13 +16,34 @@
 <body>
 
 <div class="container-fluid">
-  <div class="title">
-    <h3>All employees</h3>
+  <!-- All employees view - button -->
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+      <a href="/hr/archive" class="link">
+        <div class="button mt-2 mb-2">
+          <p class="btnText">Archive</p>
+          <div class="btnTwo">
+            <p class="btnText2"><img src="/assets/archive.png" alt="archive"></p>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
-  <a href="/hr/archive" class="btn">Archive</a>
-  <div class="panel panel-default pa">
+  <!-- Closing all employees view - button -->
+
+  <!-- Title of the page -->
+  <div class="row" id="titleContainer">
+    <div class="col-sm-12">
+      <div class="title text-center mt-2 mb-2">
+        <h3 class="titleDecoration">List of all employees</h3>
+      </div>
+    </div>
+  </div>
+  <!-- Closing title of the page -->
+
+
     <div class="row">
-      <div class="table-responsive">
+      <div class="table-responsive m-3">
         <table class="table table-hover table-striped">
           <thead class="bg-warning text-danger text-center">
           <tr>
@@ -92,16 +113,16 @@
               </span>
             </td>
             <td class="td-actions">
-              <a rel="tooltip" class="btn btn-info btn-round btn-just-icon btn-sm"
+              <a rel="tooltip" title="Profile" class="btn btn-info btn-round btn-just-icon btn-sm"
                  href="/hr/profile/{{employee.id}}">
                 <i class="material-icons">person</i>
               </a> &nbsp;
               <a rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"
-                 data-original-title="" title="" (click)="toggle(employee)">
+                 data-original-title="" title="Edit" (click)="toggle(employee)">
                 <i class="material-icons">edit</i>
               </a>
               &nbsp;
-              <a rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"  (click)="open(employee.firstName, employee.middleName,employee.lastName,employee.id)">
+              <a rel="tooltip" title="Fire" class="btn btn-danger btn-round btn-just-icon btn-sm"  (click)="open(employee.firstName, employee.middleName,employee.lastName,employee.id)">
                 <i class="material-icons">close</i>
               </a>
             </td>
@@ -113,7 +134,7 @@
 
     </div>
   </div>
-</div>
+
 
 <ng-template>
 <app-popup></app-popup>

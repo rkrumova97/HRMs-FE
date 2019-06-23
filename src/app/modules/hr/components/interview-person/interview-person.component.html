@@ -94,6 +94,9 @@
                   <label class="custom-control-label" for="{{gender}}">{{gender}}</label>
                 </div>
               </ng-container>
+              <div *ngIf="!person.gender && submitted" class="invalid-feedback d-block">
+                <span>Gender is required field.</span>
+              </div>
             </div>
           </div>
 
@@ -136,7 +139,24 @@
               <list-upload></list-upload>
             </div>
           </div>
+
+          <div class="form-group col-md-6">
+            <label for="interviewDate" class="col-12 col-form-label">Interview date</label>
+            <div class="col-12">
+              <input [owlDateTime]="dt2"
+                     placeholder="Interview Date"
+                     [(ngModel)]="person.interviewDate"
+                     name="interviewDate"
+                     id="interviewDate" >
+              <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+              <owl-date-time #dt2></owl-date-time>
+              <div *ngIf="!person.interviewDate && submitted" class="invalid-feedback d-block">
+                <span>Interview Date is required field.</span>
+              </div>
+            </div>
         </div>
+        </div>
+
 
         <button type="submit" class="btn btn-primary" [disabled]="isAdding" (click)="addPerson(personForm.valid)">Add</button>
         <button type="button" class="btn btn-primary" (click)="cancelAdd()">Back</button>
