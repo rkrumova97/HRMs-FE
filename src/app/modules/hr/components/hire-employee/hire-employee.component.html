@@ -21,8 +21,9 @@
                      placeholder="Type employee's first name"
                      name="firstName"
                      [(ngModel)]="employee.firstName"
-                     [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched || submitted) }" />
-              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)" class="invalid-feedback">
+                     [ngClass]="{ 'is-invalid': firstName.invalid && (firstName.dirty || firstName.touched || submitted) }"/>
+              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)"
+                   class="invalid-feedback">
                 <span>First name is required field.</span>
               </div>
             </div>
@@ -38,8 +39,9 @@
                      [(ngModel)]="employee.middleName"
                      required
                      #middleName="ngModel"
-                     [ngClass]="{ 'is-invalid': middleName.invalid && (middleName.dirty || middleName.touched || submitted) }" />
-              <div *ngIf="middleName.invalid && (middleName.dirty || middleName.touched || submitted)" class="invalid-feedback">
+                     [ngClass]="{ 'is-invalid': middleName.invalid && (middleName.dirty || middleName.touched || submitted) }"/>
+              <div *ngIf="middleName.invalid && (middleName.dirty || middleName.touched || submitted)"
+                   class="invalid-feedback">
                 <span>Middle name is required field.</span>
               </div>
             </div>
@@ -59,8 +61,9 @@
                      [(ngModel)]="employee.lastName"
                      required
                      #lastName="ngModel"
-                     [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched || submitted) }" />
-              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)" class="invalid-feedback">
+                     [ngClass]="{ 'is-invalid': lastName.invalid && (lastName.dirty || lastName.touched || submitted) }"/>
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)"
+                   class="invalid-feedback">
                 <span>Last name is required field.</span>
               </div>
             </div>
@@ -76,7 +79,8 @@
                      #ageInput="ngModel"
                      [(ngModel)]="employee.age"
                      [ngClass]="{ 'is-invalid': ageInput.invalid && (ageInput.dirty || ageInput.touched || submitted) }"/>
-              <div *ngIf="ageInput.invalid && (ageInput.dirty || ageInput.touched || submitted)" class="invalid-feedback">
+              <div *ngIf="ageInput.invalid && (ageInput.dirty || ageInput.touched || submitted)"
+                   class="invalid-feedback">
                 <span>Age is required field.</span>
               </div>
             </div>
@@ -88,16 +92,16 @@
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Gender</label>
             <div class="col-12">
-            <ng-container *ngFor="let gender of genders">
-              <div class="custom-control custom-radio">
-                <input type="radio" id="{{gender}}" name="gg1" class="custom-control-input" [value]="gender.valueOf()"
-                       [(ngModel)]="employee.gender">
-                <label class="custom-control-label" for="{{gender}}">{{gender}}</label>
+              <ng-container *ngFor="let gender of genders">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="{{gender}}" name="gg1" class="custom-control-input" [value]="gender.valueOf()"
+                         [(ngModel)]="employee.gender">
+                  <label class="custom-control-label" for="{{gender}}">{{gender}}</label>
+                </div>
+              </ng-container>
+              <div *ngIf="!employee.gender && submitted" class="invalid-feedback d-block">
+                <span>Gender is required field.</span>
               </div>
-            </ng-container>
-            <div *ngIf="!employee.gender && submitted" class="invalid-feedback d-block">
-              <span>Gender is required field.</span>
-            </div>
             </div>
           </div>
 
@@ -110,8 +114,8 @@
                      id="address"
                      name="address"
                      [(ngModel)]="employee.address"
-                      required
-                      #address="ngModel"
+                     required
+                     #address="ngModel"
                      [ngClass]="{ 'is-invalid': address.invalid && (address.dirty || address.touched || submitted) }">
               <div *ngIf="address.invalid && (address.dirty || address.touched || submitted)" class="invalid-feedback">
                 <span>Address is required field.</span>
@@ -119,10 +123,26 @@
             </div>
           </div>
 
+          <div class="form-group col-md-6">
+            <label for="iban" class="col-12 col-form-label">IBAN</label>
+            <div class="col-12">
+              <input class="form-control" type="text"
+                     placeholder="Employee personal IBAN"
+                     id="iban"
+                     name="iban"
+                     [(ngModel)]="employee.iban"
+                     required
+                     #iban="ngModel"
+                     [ngClass]="{ 'is-invalid': iban.invalid && (iban.dirty || iban.touched || submitted) }">
+              <div *ngIf="address.invalid && (iban.dirty || iban.touched || submitted)" class="invalid-feedback">
+                <span>IBAN is required field.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="form-row">
-        <div class="form-group col-md-6">
+          <div class="form-group col-md-6">
             <label for="jobID" class="col-12 col-form-label">JobID</label>
             <div class="col-12">
               <input class="form-control" type="text"
@@ -132,7 +152,7 @@
                      name="jobID"
                      [(ngModel)]="employee.jobId"
                      #jobID="ngModel"
-                     [ngClass]="{ 'is-invalid': jobID.invalid && (jobID.dirty || jobID.touched || submitted) }" />
+                     [ngClass]="{ 'is-invalid': jobID.invalid && (jobID.dirty || jobID.touched || submitted) }"/>
               <div *ngIf="jobID.invalid && (jobID.dirty || jobID.touched || submitted)" class="invalid-feedback">
                 <span>Employee personal jobID is required field.</span>
               </div>
@@ -149,7 +169,7 @@
                      [(ngModel)]="employee.email"
                      required
                      #email="ngModel"
-                     [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched || submitted) }" />
+                     [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched || submitted) }"/>
               <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="invalid-feedback">
                 <span>Email is required field.</span>
               </div>
@@ -170,7 +190,7 @@
                        name="salary"
                        [(ngModel)]="employee.salary"
                        #salary="ngModel"
-                       [ngClass]="{ 'is-invalid': salary.invalid && (salary.dirty || salary.touched || submitted) }" />
+                       [ngClass]="{ 'is-invalid': salary.invalid && (salary.dirty || salary.touched || submitted) }"/>
                 <div class="input-group-append">
                   <span class="input-group-text">лв.</span>
                 </div>
@@ -197,7 +217,8 @@
                      required
                      #startingDate="ngModel"
                      [ngClass]="{ 'is-invalid': startingDate.invalid && (startingDate.dirty || startingDate.touched || submitted) }"/>
-              <div *ngIf="startingDate.invalid && (startingDate.dirty || startingDate.touched || submitted)" class="invalid-feedback d-block">
+              <div *ngIf="startingDate.invalid && (startingDate.dirty || startingDate.touched || submitted)"
+                   class="invalid-feedback d-block">
                 <span>Starting Date is required field.</span>
               </div>
             </div>
@@ -216,8 +237,9 @@
                      [(ngModel)]="employee.vacationDays"
                      required
                      #vacation="ngModel"
-                     [ngClass]="{ 'is-invalid': vacation.invalid && (vacation.dirty || vacation.touched || submitted) }" />
-              <div *ngIf="vacation.invalid && (vacation.dirty || vacation.touched || submitted)" class="invalid-feedback">
+                     [ngClass]="{ 'is-invalid': vacation.invalid && (vacation.dirty || vacation.touched || submitted) }"/>
+              <div *ngIf="vacation.invalid && (vacation.dirty || vacation.touched || submitted)"
+                   class="invalid-feedback">
                 <span>Vacation days is required field.</span>
               </div>
             </div>
@@ -241,7 +263,9 @@
                   {{o.name}}
                 </option>
               </select>
-              <div *ngIf="workingHoursSelect.invalid && (workingHoursSelect.dirty || workingHoursSelect.touched || submitted)" class="invalid-feedback d-block">
+              <div
+                *ngIf="workingHoursSelect.invalid && (workingHoursSelect.dirty || workingHoursSelect.touched || submitted)"
+                class="invalid-feedback d-block">
                 <span>Working Hours is required field.</span>
               </div>
             </div>
@@ -262,7 +286,9 @@
                   {{o.name}}
                 </option>
               </select>
-              <div *ngIf="workingDaysSelect.invalid && (workingDaysSelect.dirty || workingDaysSelect.touched || submitted)" class="invalid-feedback d-block">
+              <div
+                *ngIf="workingDaysSelect.invalid && (workingDaysSelect.dirty || workingDaysSelect.touched || submitted)"
+                class="invalid-feedback d-block">
                 <span>Working Days is required field.</span>
               </div>
             </div>
@@ -300,7 +326,9 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" [disabled]="isAdding" (click)="addEmployee(employeeForm.valid)">Submit employee</button>
+        <button type="submit" class="btn btn-primary" [disabled]="isAdding" (click)="addEmployee(employeeForm.valid)">
+          Submit employee
+        </button>
         <button type="button" class="btn btn-primary" (click)="cancelAdd()">Back</button>
 
       </form>

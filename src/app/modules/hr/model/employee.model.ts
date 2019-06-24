@@ -18,6 +18,8 @@ export class Employee {
   position: any[];
   username: any;
   jobId: number;
+  iban: any;
+
   constructor() {
     this.id = null;
     this.firstName = null;
@@ -35,5 +37,6 @@ export class Employee {
     this.grade = null;
     this.skill = null;
     this.jobId = null;
+    this.iban = null;
   }
 }

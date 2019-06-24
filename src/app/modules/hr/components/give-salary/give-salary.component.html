@@ -1,3 +1,95 @@
-<p>
-  give-salary works!
-</p>
+<section class="hero d-flex align-items-center">
+  <div class="container-fluid">
+    <h1><span class="text-primary">Search an employee</span></h1>
+    <div class="search-bar">
+      <div class="row">
+        <div class="form-group rightLine col-lg-2  col-sm-2 col-md-2">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn  bootstrap-select dropdown-toggle bs-placeholder btn-default" id="dropdownBasic2"
+                      ngbDropdownToggle aria-haspopup="true" aria-expanded="true" name="{{grade}}">{{grade}}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <div *ngFor="let grade of grades">
+                  <button ngbDropdownItem (click)="onClick(grade)">{{grade}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group rightLine col-lg-2  col-sm-2 col-md-2">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button class="btn  bootstrap-select dropdown-toggle bs-placeholder btn-default" id="dropdownBasic1"
+                      ngbDropdownToggle aria-haspopup="true" aria-expanded="true" value="{{position}}">
+                {{position}}
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <div *ngFor="let position of positions">
+                  <button ngbDropdownItem (click)="onClickButton(position)">{{position}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-lg-6  col-sm-6 col-md-6">
+          <div class="col-md-12 mx-auto">
+            <div class="md-form">
+              <input class="form-control ml-2" type="text" [formControl]="filter"
+                     placeholder="Who do you want to search?"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped mt-5" style="color: #2C93FF" *ngIf="filter.value || position != 'Position' || grade != 'Grade'">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First name</th>
+        <th scope="col">Middle name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">IBAN</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees$ | async">
+        <td>
+          <ngb-highlight [result]="employee.id  | number" [term]="filter.value"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="employee.firstName" [term]="filter.value"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="employee.middleName" [term]="filter.value"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="employee.lastName" [term]="filter.value"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="employee.salary | number" [term]="filter.value" contenteditable="true"
+                         (click)="updateList(employee, 'salary', $event)"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="employee.iban" [term]="filter.value" contenteditable="true"
+                         (click)="updateList(employee, 'iban', $event)"></ngb-highlight>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-sm-12 col-md-4 col-lg-3 col-xl-2">
+        <a href="/hr" class="link" (click)="excel()">
+          <div class="button mt-2 mb-2">
+            <p class="btnText">Pay salaries</p>
+            <div class="btnTwo">
+              <p class="btnText2">$</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

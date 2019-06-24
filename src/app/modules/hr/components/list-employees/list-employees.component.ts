@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PopupComponent} from './popup/popup.component';
-import {last} from "rxjs/operators";
+import {last} from 'rxjs/operators';
 
 @Component({
   selector: 'app-list-employees',
@@ -54,7 +54,7 @@ export class ListEmployeesComponent implements OnInit {
   }
 
   open(firstName, middleName, lastName, id) {
-    const modalRef = this.modalService.open(PopupComponent, {centered:true});
+    const modalRef = this.modalService.open(PopupComponent, {centered: true});
     modalRef.componentInstance.firstName = firstName;
     modalRef.componentInstance.middleName = middleName;
     modalRef.componentInstance.lastName = lastName;

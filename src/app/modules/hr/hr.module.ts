@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DecimalPipe} from '@angular/common';
 // Components
 import {HrComponent} from './hr.component';
 // Modules
@@ -22,8 +22,8 @@ import {PopupComponent} from './components/list-employees/popup/popup.component'
 import {ListUploadComponent} from '../upload/list-upload.component';
 import {FormUploadComponent} from '../upload/form-upload.component';
 import {DetailsUploadComponent} from '../upload/details-upload.component';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from 'ng-pick-datetime';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     OwlNativeDateTimeModule,
     AngularFontAwesomeModule
   ],
-  bootstrap: [HrComponent]
+  bootstrap: [HrComponent],
+  providers: [DecimalPipe]
 })
 export class HrModule {
 }
