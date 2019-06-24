@@ -6,7 +6,7 @@ export class Employee {
   gender: string;
   address: string;
   email: string;
-  salary: number;
+  salary: any;
   startDate: any;
   vacationDays: number;
   workingHours: number;

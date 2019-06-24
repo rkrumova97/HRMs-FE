@@ -68,7 +68,7 @@
           <ngb-highlight [result]="employee.lastName" [term]="filter.value"></ngb-highlight>
         </td>
         <td>
-          <ngb-highlight [result]="employee.salary | number" [term]="filter.value" contenteditable="true"
+          <ngb-highlight [result]="employee.salary" [term]="filter.value" contenteditable="true"
                          (click)="updateList(employee, 'salary', $event)"></ngb-highlight>
         </td>
         <td>
