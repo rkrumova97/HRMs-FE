@@ -148,8 +148,8 @@
                      placeholder="Interview Date"
                      [(ngModel)]="person.interviewDate"
                      name="interviewDate"
-                     id="interviewDate" >
-              <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+                     id="interviewDate" class="form-control" style="width: 95% !important;">
+              <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar fa-2x" style="float: right; margin-top: -36px;"></i></span>
               <owl-date-time #dt2></owl-date-time>
               <div *ngIf="!person.interviewDate && submitted" class="invalid-feedback d-block">
                 <span>Interview Date is required field.</span>
