@@ -18,6 +18,7 @@ export class HireEmployeeComponent implements OnInit {
   skills: string[];
   employee: Employee;
   genders: string[];
+  jobs: string[];
   router: Router;
   dropdownSettings = {};
 
@@ -69,6 +70,11 @@ export class HireEmployeeComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+
+    this.http.get<string[]>('http://localhost:8080/jobs').subscribe(res => {
+      this.jobs = res;
+      console.log(this.jobs);
+    });
   }
 
   cancelAdd() {

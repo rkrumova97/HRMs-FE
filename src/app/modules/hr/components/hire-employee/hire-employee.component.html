@@ -143,19 +143,15 @@
 
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="jobID" class="col-12 col-form-label">JobID</label>
+            <label class="col-12 col-form-label">Job</label>
             <div class="col-12">
-              <input class="form-control" type="text"
-                     required
-                     placeholder="Employee personal jobID"
-                     id="jobID"
-                     name="jobID"
-                     [(ngModel)]="employee.jobId"
-                     #jobID="ngModel"
-                     [ngClass]="{ 'is-invalid': jobID.invalid && (jobID.dirty || jobID.touched || submitted) }"/>
-              <div *ngIf="jobID.invalid && (jobID.dirty || jobID.touched || submitted)" class="invalid-feedback">
-                <span>Employee personal jobID is required field.</span>
-              </div>
+              <ng-container *ngFor="let job of jobs">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="{{job}}" name="jj" class="custom-control-input"
+                         [value]="job" [(ngModel)]="employee.jobName">
+                  <label class="custom-control-label" for="{{job}}">{{job}}</label>
+                </div>
+              </ng-container>
             </div>
           </div>
 

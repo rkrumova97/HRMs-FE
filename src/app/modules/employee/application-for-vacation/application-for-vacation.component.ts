@@ -26,7 +26,7 @@ export class ApplicationForVacationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.application = new ApplicationForVacation(null, null, null);
+    this.application = new ApplicationForVacation(null, null, null, null);
 
     this.http.get<Employee[]>('http://localhost:8080/createApplication').subscribe(res => {
       this.employees = res;
@@ -44,7 +44,7 @@ export class ApplicationForVacationComponent implements OnInit {
     this.http.post<Query>('http://localhost:8080/createApplication', JSON.stringify(this.application), httpOptions)
       .subscribe(r => {
         console.log(r);
-        this.router.navigate(['/hr']);
+        this.router.navigate(['/employee']);
       });
   }
 

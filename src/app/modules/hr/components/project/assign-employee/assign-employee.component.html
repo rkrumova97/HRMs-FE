@@ -4,7 +4,8 @@
       <h1 class="headerTitle">Our employees on Bench:</h1>
     </div>
   </div>
-  <div class="card-container">
+  <div class="row">
+  <div class="card-container" *ngFor="let employee of employees; let i = index" [attr.data-index]="0">
       <div class="card">
         <div class="front">
           <div class="cover">
@@ -15,59 +16,60 @@
           </div>
           <div class="content">
             <div class="main">
-              <h3 class="name">Inna Corman</h3>
-              <p class="profession">Product Manager</p>
-
-              <p class="text-center">"I'm the new Sinatra, and since I made it here I can make it anywhere, yeah, they
-                love me everywhere"</p>
-            </div>
-            <div class="footer">
-              <div class="rating">
-                <i class="fa fa-mail-forward"></i> Auto Rotation
-              </div>
+              <h3 class="name">{{employee.firstName + " " + employee.lastName}}</h3>
+              <p class="profession">{{employee.grade}}</p>
             </div>
           </div>
         </div> <!-- end front panel -->
         <div class="back">
           <div class="header">
-            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+            <h5 class="motto">{{employee.email}}</h5>
           </div>
           <div class="content">
             <div class="main">
-              <h4 class="text-center">Job Description</h4>
-              <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+              <h4 class="text-center">Skills</h4>
+              <p class="text-center">{{employee.skill}}</p>
+
+              <form>
+                <div class="form-group col-md-6">
+                  <div class="col-12">
+                    <select [(ngModel)]="employee.jobName"  name="jobName" class="custom-select">
+                      <option *ngFor="let job of jobs" [value]="job">
+                        {{job}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" (click)="onSubmit(employee)">Assign</button>
+              </form>
+
 
               <div class="stats-container">
                 <div class="stats">
-                  <h4>235</h4>
+                  <h4>{{employee.salary}}</h4>
                   <p>
-                    Followers
+                    Salary
                   </p>
                 </div>
                 <div class="stats">
-                  <h4>114</h4>
+                  <h4>{{employee.vacationDays}}</h4>
                   <p>
-                    Following
+                    Vacation Days
                   </p>
                 </div>
                 <div class="stats">
-                  <h4>35</h4>
+                  <h4>{{employee.workingHours}}</h4>
                   <p>
-                    Projects
+                    Working Hours
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
 
-            </div>
-          </div>
-          <div class="footer">
-            <div class="social-links text-center">
-              <a href="https://creative-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
-              <a href="https://creative-tim.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
-              <a href="https://creative-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
-            </div>
-          </div>
         </div> <!-- end back panel -->
       </div> <!-- end card -->
   </div> <!-- end card-container -->
+  </div>
 </div>

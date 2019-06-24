@@ -18,6 +18,7 @@ export class Employee {
   position: any[];
   username: any;
   jobId: number;
+  jobName: string;
   iban: any;
 
   constructor() {
@@ -38,5 +39,6 @@ export class Employee {
     this.skill = null;
     this.jobId = null;
     this.iban = null;
+    this.jobName = null;
   }
 }
