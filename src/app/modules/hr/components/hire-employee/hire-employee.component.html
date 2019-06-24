@@ -322,6 +322,20 @@
           </div>
         </div>
 
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label class="col-12 col-form-label">Upload CV</label>
+            <div class="col-12">
+              <form-upload></form-upload>
+
+              <br/>
+              <br/>
+
+              <list-upload></list-upload>
+            </div>
+          </div>
+        </div>
+
         <button type="submit" class="btn btn-primary" [disabled]="isAdding" (click)="addEmployee(employeeForm.valid)">
           Submit employee
         </button>

@@ -18,7 +18,6 @@ export class InterviewPersonComponent implements OnInit {
   genders: string[];
 
   // Forms validation
-  addForm: FormGroup;
   submitted = false;
   isAdding = false;
 
@@ -36,21 +35,8 @@ export class InterviewPersonComponent implements OnInit {
     if (!this.person) {
       this.person = new PersonModel();
     }
-    // this.setValidation();
 
     this.genders = ['Male', 'Female', 'Other'];
-  }
-
-  setValidation() {
-    this.addForm = this.formBuilder.group({
-        firstName: ['', Validators.required],
-        middleName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')]],
-      },
-      {
-        updateOn: 'blur'
-      });
   }
 
   cancelAdd() {

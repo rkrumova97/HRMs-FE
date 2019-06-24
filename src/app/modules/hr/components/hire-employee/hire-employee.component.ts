@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Employee} from '../../model/employee.model';
 import {Query} from '../../../core/query.model';
 import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Location} from '@angular/common';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-hire-employee',
@@ -40,7 +41,8 @@ export class HireEmployeeComponent implements OnInit {
 
   constructor(http: HttpClient, router: Router,
               private formBuilder: FormBuilder,
-              private location: Location) {
+              private location: Location,
+              private toastr: ToastrService) {
     this.http = http;
     this.router = router;
   }
@@ -92,6 +94,7 @@ export class HireEmployeeComponent implements OnInit {
       };
       this.http.post<Query>('http://localhost:8080/hire', JSON.stringify(this.employee), httpOptions)
         .subscribe(r => {
+          this.toastr.success('Employee is hired!', 'Success');
           this.router.navigate(['/hr']);
         });
     }
