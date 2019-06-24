@@ -130,6 +130,7 @@ export class GiveSalaryComponent implements OnInit {
 
   excel() {
     this.http.get('http://localhost:8080/excel').subscribe(res => console.log(res));
+    this.http.get('http://localhost:8080/salaryEmail').subscribe(res => console.log(res));
   }
 
 
