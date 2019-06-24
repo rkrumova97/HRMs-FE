@@ -5,6 +5,7 @@ import {PersonModel} from '../../model/person.model';
 import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-interview-person',
@@ -27,7 +28,8 @@ export class InterviewPersonComponent implements OnInit {
   constructor(private router: Router,
               private http: HttpClient,
               private formBuilder: FormBuilder,
-              private location: Location) {
+              private location: Location,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -58,6 +60,7 @@ export class InterviewPersonComponent implements OnInit {
   addPerson(valid: boolean) {
     this.submitted = true;
     if (valid) {
+      this.isAdding = true;
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json;charset=UTF-8',
@@ -71,11 +74,21 @@ export class InterviewPersonComponent implements OnInit {
             interviewDate: this.person.interviewDate,
             name: this.person.firstName + ' ' + this.person.middleName + ' ' + this.person.lastName};
 
+          this.toastr.success('Person is added successfully!', 'Success');
+
           this.http.post<Query>('http://localhost:8080/sendInterviewInvite', JSON.stringify(this.interviewInvite), httpOptions)
             .subscribe(innerR => {
               this.router.navigate(['/hr']);
-            });
-        });
+            },
+              error => {
+                this.isAdding = false;
+                this.toastr.error(error, 'Something went wrong!');
+              });
+        },
+          error => {
+            this.isAdding = false;
+            this.toastr.error(error, 'Something went wrong!');
+          });
     }
   }
 
