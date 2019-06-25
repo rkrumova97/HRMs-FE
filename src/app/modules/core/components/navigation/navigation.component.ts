@@ -12,6 +12,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(http: HttpClient) {
     this.http = http;
+    this.name = window.sessionStorage.getItem('currentUser');
   }
 
   ngOnInit() {

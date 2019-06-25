@@ -29,7 +29,9 @@ export class SecurityComponent implements OnInit {
 
     this.apiService.login(body.toString()).subscribe(data => {
       window.sessionStorage.setItem('token', JSON.stringify(data));
+      window.sessionStorage.setItem('currentUser', body.get('username'));
       console.log(window.sessionStorage.getItem('token'));
+      console.log(    window.sessionStorage.getItem('currentUser'));
       this.router.navigate(['/hr']);
       this.authenticated = true;
     }, error => {
