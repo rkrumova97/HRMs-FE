@@ -3,6 +3,7 @@ import {Project} from '../../../model/project.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Query} from "../../../../core/query.model";
 import {Route, Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-project',
@@ -20,7 +21,7 @@ export class AddProjectComponent implements OnInit {
   dropdownSettings: {};
   router: Router;
 
-  constructor(http: HttpClient, router: Router) {
+  constructor(http: HttpClient, router: Router, private toastr: ToastrService) {
     this.http = http;
     this.router = router;
   }
@@ -69,6 +70,7 @@ export class AddProjectComponent implements OnInit {
       .subscribe(r => {
         console.log(r);
         this.router.navigate(['/hr']);
+        this.toastr.success('Project is saved!', 'Success');
       });
   }
 }

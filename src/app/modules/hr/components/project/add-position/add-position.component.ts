@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Position} from '../../../model/position.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Query} from '../../../../core/query.model';
 import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-add-position',
@@ -18,7 +19,10 @@ export class AddPositionComponent implements OnInit {
   http: HttpClient;
   router: Router;
 
-  constructor(http: HttpClient, router: Router) { this.http = http; this.router = router; }
+  constructor(http: HttpClient, router: Router, private toastr: ToastrService) {
+    this.http = http;
+    this.router = router;
+  }
 
   ngOnInit() {
     this.position = new Position();
@@ -40,6 +44,7 @@ export class AddPositionComponent implements OnInit {
       .subscribe(r => {
         console.log(r);
         this.router.navigate(['/hr']);
+        this.toastr.success('Position is saved!', 'Success');
       });
   }
 }

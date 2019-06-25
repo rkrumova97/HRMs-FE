@@ -65,9 +65,9 @@
             <td> {{employee.id}} </td>
             <td>{{employee.firstName + " " + employee.middleName + " " + employee.lastName}}</td>
             <td>
-              <span *ngIf="!employee.show" contenteditable="false">{{employee.position}}</span>
-              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'position', $event)">
-                {{employee.jobId}}
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.jobName}}</span>
+              <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'jobName', $event)">
+                {{employee.jobName}}
               </span>
             </td>
             <td>

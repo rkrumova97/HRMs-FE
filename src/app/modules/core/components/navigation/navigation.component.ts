@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.less']
 })
 export class NavigationComponent implements OnInit {
+  name: any;
+  private http: HttpClient;
 
-  constructor() { }
+  constructor(http: HttpClient) {
+    this.http = http;
+  }
 
   ngOnInit() {
+
   }
 
 }
