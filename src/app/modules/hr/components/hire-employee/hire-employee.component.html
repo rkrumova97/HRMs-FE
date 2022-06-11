@@ -310,13 +310,23 @@
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Skill</label>
             <div class="col-12">
-              <ng-multiselect-dropdown
-                placeholder="Select skills"
-                name="dropdownSkills"
-                [data]="skills"
+              <select
                 [(ngModel)]="employee.skill"
-                [settings]="dropdownSettings">
-              </ng-multiselect-dropdown>
+                name="skillsSelect"
+                id="skills"
+                class="custom-select"
+                required
+                #skillsSelect="ngModel"
+                [ngClass]="{ 'is-invalid': skillsSelect.invalid && (skillsSelect.dirty || skillsSelect.touched || submitted) }">
+                <option *ngFor="let o of skills" [ngValue]="o.value">
+                  {{o.name}}
+                </option>
+              </select>
+              <div
+                *ngIf="workingHoursSelect.invalid && (workingHoursSelect.dirty || workingHoursSelect.touched || submitted)"
+                class="invalid-feedback d-block">
+                <span>Working Hours is required field.</span>
+              </div>
             </div>
           </div>
         </div>

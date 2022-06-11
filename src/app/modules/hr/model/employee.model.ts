@@ -12,10 +12,10 @@ export class Employee {
   workingHours: number;
   workingDays: number;
   grade: string;
-  skill: any[];
+  skill: any;
   show: any;
   id: any;
-  position: any[];
+  position: any;
   username: any;
   jobId: number;
   jobName: string;

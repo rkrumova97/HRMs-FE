@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
 import {Employee} from '../../model/employee.model';
 import {Query} from '../../../core/query.model';
 import {Router} from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 
@@ -16,7 +16,9 @@ export class HireEmployeeComponent implements OnInit {
 
   grades: string[];
   http: HttpClient;
-  skills: string[];
+  skills =
+    [{name: 'Management', value: 3},
+      {name: 'Teamwork', value: 4}];
   employee: Employee;
   genders: string[];
   jobs: string[];
@@ -29,14 +31,14 @@ export class HireEmployeeComponent implements OnInit {
   isAdding = false;
 
   workingDays = [
-    { name: 'Three days a week', value: 3 },
-    { name: 'Four days a week', value: 4 },
-    { name: 'Five days a week', value: 5 }
+    {name: 'Three days a week', value: 3},
+    {name: 'Four days a week', value: 4},
+    {name: 'Five days a week', value: 5}
   ];
   workingHours = [
-    { name: 'Four hours a day', value: 4 },
-    { name: 'Six hours a day', value: 6 },
-    { name: 'Eight hours a day', value: 8 }
+    {name: 'Four hours a day', value: 4},
+    {name: 'Six hours a day', value: 6},
+    {name: 'Eight hours a day', value: 8}
   ];
 
   constructor(http: HttpClient, router: Router,
@@ -52,16 +54,8 @@ export class HireEmployeeComponent implements OnInit {
     this.employee = new Employee();
 
     this.genders = ['Male', 'Female', 'Other'];
-
-    this.http.get<string[]>('http://localhost:8080/grades').subscribe(res => {
-      this.grades = res;
-      console.log(this.grades);
-    });
-
-    this.http.get<string[]>('http://localhost:8080/skills').subscribe(res => {
-      this.skills = res;
-      console.log(this.skills);
-    });
+    this.grades = ['Junior', 'Senior', 'Mid'];
+    this.jobs = ['Java', 'C#', 'JS'];
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -73,10 +67,6 @@ export class HireEmployeeComponent implements OnInit {
       allowSearchFilter: true
     };
 
-    this.http.get<string[]>('http://localhost:8080/jobs').subscribe(res => {
-      this.jobs = res;
-      console.log(this.jobs);
-    });
   }
 
   cancelAdd() {
@@ -92,7 +82,7 @@ export class HireEmployeeComponent implements OnInit {
           'Content-Type': 'application/json;charset=UTF-8',
         })
       };
-      this.http.post<Query>('http://localhost:8080/hire', JSON.stringify(this.employee), httpOptions)
+      this.http.post<Query>('http://localhost:8000/api/employee', JSON.stringify(this.employee), httpOptions)
         .subscribe(r => {
           this.toastr.success('Employee is hired!', 'Success');
           this.router.navigate(['/hr']);

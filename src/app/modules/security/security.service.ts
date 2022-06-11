@@ -7,15 +7,15 @@ import {HttpClient} from '@angular/common/http';
 export class SecurityService {
 
   constructor(private http: HttpClient) { }
-  baseUrl = 'http://localhost:8080/api/';
+  baseUrl = 'http://localhost:8000/api/';
 
   login(loginPayload) {
     const headers = {
-      Authorization: 'Basic ' + btoa('devglan-client:devglan-secret'),
+      Authorization: 'Basic ' + btoa('4:V6uUOfdzLjxE2VDCqPElTC1Iu2bAP2DEaVuNk1bE'),
       'Content-type': 'application/x-www-form-urlencoded'
     };
-    console.log('something2');
-    return this.http.post('http://localhost:8080/' + 'oauth/token', loginPayload, {headers});
+    console.log(loginPayload);
+    return this.http.post('http://localhost:8000/' + 'oauth/token', loginPayload, {headers});
   }
 
   getUsers() {

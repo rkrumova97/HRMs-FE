@@ -52,7 +52,7 @@ export class InterviewPersonComponent implements OnInit {
           'Content-Type': 'application/json;charset=UTF-8',
         })
       };
-      this.http.post<Query>('http://localhost:8080/addPerson', JSON.stringify(this.person), httpOptions)
+      this.http.post<Query>('http://localhost:8000/api/person', JSON.stringify(this.person), httpOptions)
         .subscribe(r => {
 
           this.interviewInvite = {
@@ -62,14 +62,11 @@ export class InterviewPersonComponent implements OnInit {
 
           this.toastr.success('Person is added successfully!', 'Success');
 
-          this.http.post<Query>('http://localhost:8080/sendInterviewInvite', JSON.stringify(this.interviewInvite), httpOptions)
-            .subscribe(innerR => {
+          //todo send email
+          this.http.get<Query>('http://localhost:8000/sendInterviewInvite', httpOptions)
+            .subscribe(() => {
               this.router.navigate(['/hr']);
-            },
-              error => {
-                this.isAdding = false;
-                this.toastr.error(error, 'Something went wrong!');
-              });
+            });
         },
           error => {
             this.isAdding = false;
