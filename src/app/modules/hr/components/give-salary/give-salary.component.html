@@ -3,35 +3,6 @@
     <h1><span class="text-primary">Search an employee</span></h1>
     <div class="search-bar">
       <div class="row">
-        <div class="form-group rightLine col-lg-2  col-sm-2 col-md-2">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn  bootstrap-select dropdown-toggle bs-placeholder btn-default" id="dropdownBasic2"
-                      ngbDropdownToggle aria-haspopup="true" aria-expanded="true" name="{{grade}}">{{grade}}
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <div *ngFor="let grade of grades">
-                  <button ngbDropdownItem (click)="onClick(grade)">{{grade}}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group rightLine col-lg-2  col-sm-2 col-md-2">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn  bootstrap-select dropdown-toggle bs-placeholder btn-default" id="dropdownBasic1"
-                      ngbDropdownToggle aria-haspopup="true" aria-expanded="true" value="{{position}}">
-                {{position}}
-              </button>
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <div *ngFor="let position of positions">
-                  <button ngbDropdownItem (click)="onClickButton(position)">{{position}}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="form-group col-lg-6  col-sm-6 col-md-6">
           <div class="col-md-12 mx-auto">
             <div class="md-form">
@@ -42,7 +13,7 @@
         </div>
       </div>
     </div>
-    <table class="table table-striped mt-5" style="color: #2C93FF" *ngIf="filter.value || position != 'Position' || grade != 'Grade'">
+    <table class="table table-striped mt-5" style="color: #2C93FF" *ngIf="filter.value">
       <thead>
       <tr>
         <th scope="col">ID</th>

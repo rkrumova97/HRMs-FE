@@ -60,7 +60,6 @@ export class GiveSalaryComponent implements OnInit {
     this.http = http;
   }
 
-  grades: any[];
   positions: any[];
   grade: any;
   position: any;
@@ -77,40 +76,26 @@ export class GiveSalaryComponent implements OnInit {
     this.grade = 'Grade';
     this.position = 'Position';
 
-    this.http.get<string[]>('http://localhost:8080/positions').subscribe(res => {
-      this.positions = res;
-      console.log(this.positions);
-    });
 
-    this.http.get<string[]>('http://localhost:8080/grades').subscribe(res => {
-      this.grades = res;
-      console.log(this.grades);
-    });
-
-    this.http.get<Employee[]>('http://localhost:8080/employees').subscribe(res => {
+    this.http.get<Employee[]>('http://localhost:8000/api/employee').subscribe(res => {
       this.employees = res;
       console.log(this.employees);
     });
 
     this.employees$ = this.filter.valueChanges.pipe(
       startWith(''),
-      map(text => search(this.employees, text))
+      map(text => this.search(text))
     );
   }
 
-  onClick(grade: any) {
-    this.grade = grade;
-    this.http.get<Employee[]>('http://localhost:8080/grade/' + grade).subscribe(res => {
-      this.employees = res;
-      console.log(this.employees);
-    });
-  }
-
-  onClickButton(position: any) {
-    this.position = position;
-    this.http.get<Employee[]>('http://localhost:8080/position/' + position).subscribe(res => {
-      this.employees = res;
-      console.log(this.employees);
+  search(text: string): Employee[] {
+    return this.employees.filter(employee => {
+      const term = text.toLowerCase();
+      console.log(employee.firstName);
+      console.log(term);
+      return employee.firstName.toLowerCase().includes(term)
+        || employee.middleName.toLowerCase().includes(term)
+        || employee.lastName.toLowerCase().includes(term);
     });
   }
 
@@ -122,17 +107,16 @@ export class GiveSalaryComponent implements OnInit {
       })
     };
     console.log(JSON.stringify(this.employees));
-    this.http.post<Employee>('http://localhost:8080/employees', JSON.stringify(this.employees), httpOptions)
+    this.http.post<Employee>('http://localhost:8000/api/employees', JSON.stringify(this.employees), httpOptions)
       .subscribe(r => {
         console.log(r);
       });
   }
 
   excel() {
-    this.http.get('http://localhost:8080/excel').subscribe(res => console.log(res));
-    this.http.get('http://localhost:8080/salaryEmail').subscribe(res => console.log(res));
+    this.http.get('http://localhost:8000/excel').subscribe(res => console.log(res));
+    this.http.get('http://localhost:8000/salaryEmail').subscribe(res => console.log(res));
   }
-
 
 }
 

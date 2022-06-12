@@ -28,7 +28,7 @@ export class ListEmployeesComponent implements OnInit {
 
   ngOnInit() {
     this.isClicked = true;
-    this.http.get<Employee[]>('http://localhost:8080/employees').subscribe(res => {
+    this.http.get<Employee[]>('http://localhost:8000/api/employee').subscribe(res => {
       this.employees = res;
     });
 
@@ -47,7 +47,7 @@ export class ListEmployeesComponent implements OnInit {
       })
     };
     console.log(JSON.stringify(this.employees));
-    this.http.post<Employee>('http://localhost:8080/employees', JSON.stringify(this.employees), httpOptions)
+    this.http.post<Employee>('http://localhost:8000/api/employee', JSON.stringify(this.employees), httpOptions)
       .subscribe(r => {
         console.log(r);
       });

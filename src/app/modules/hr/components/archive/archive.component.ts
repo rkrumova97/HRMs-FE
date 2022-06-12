@@ -22,7 +22,7 @@ export class ArchiveComponent implements OnInit {
 
   ngOnInit() {
     this.isClicked = true;
-    this.http.get<Employee[]>('http://localhost:8080/archive').subscribe(res => {
+    this.http.get<Employee[]>('http://localhost:8000/api/employee/archive').subscribe(res => {
       this.employees = res;
     });
   }

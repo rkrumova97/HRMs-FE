@@ -62,8 +62,7 @@ export class InterviewPersonComponent implements OnInit {
 
           this.toastr.success('Person is added successfully!', 'Success');
 
-          //todo send email
-          this.http.get<Query>('http://localhost:8000/sendInterviewInvite', httpOptions)
+          this.http.post<Query>('http://localhost:8000/api/person/sendInterviewInvite',this.interviewInvite, httpOptions)
             .subscribe(() => {
               this.router.navigate(['/hr']);
             });

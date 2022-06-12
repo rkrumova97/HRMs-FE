@@ -71,9 +71,9 @@
               </span>
             </td>
             <td>
-              <span *ngIf="!employee.show" contenteditable="false">{{employee.startDate}}</span>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.start_date}}</span>
               <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'startDate', $event)">
-                  {{employee.startDate}}
+                  {{employee.start_date}}
               </span>
             </td>
             <td>
@@ -83,21 +83,21 @@
               </span>
             </td>
             <td>
-              <span *ngIf="!employee.show" contenteditable="false">{{employee.vacationDays}}</span>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.vacation_days}}</span>
               <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'vacationDays', $event)">
-                  {{employee.vacationDays}}
+                  {{employee.vacation_days}}
               </span>
             </td>
             <td>
-              <span *ngIf="!employee.show" contenteditable="false">{{employee.workingHours}}</span>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.working_hours}}</span>
               <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'workingHours', $event)">
-                  {{employee.workingHours}}
+                  {{employee.working_hours}}
               </span>
             </td>
             <td>
-              <span *ngIf="!employee.show" contenteditable="false">{{employee.workingDays}}</span>
+              <span *ngIf="!employee.show" contenteditable="false">{{employee.working_days}}</span>
               <span *ngIf="employee.show" contenteditable="true" (input)="updateList(employee, 'workingDays', $event)">
-                  {{employee.workingDays}}
+                  {{employee.working_days}}
               </span>
             </td>
             <td>

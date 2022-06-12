@@ -18,7 +18,7 @@ export class EmployeeProfileComponent implements OnInit {
   ngOnInit() {
     this.employee = new Employee();
     this.id = this.route.snapshot.paramMap.get('id');
-    this.http.get<Employee>('http://localhost:8080/profile/' + this.id).subscribe(res => {
+    this.http.get<Employee>('http://localhost:8000/api/employee/' + this.id).subscribe(res => {
       this.employee = res;
       console.log(this.employee);
     });
