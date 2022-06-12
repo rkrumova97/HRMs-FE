@@ -4,6 +4,7 @@ import {Employee} from '../../model/employee.model';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 interface Country {
   name: string;
@@ -55,9 +56,11 @@ export class GiveSalaryComponent implements OnInit {
 
   employees$: Observable<Employee[]>;
   filter = new FormControl('');
+  router: Router;
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, router: Router ) {
     this.http = http;
+    this.router = router;
   }
 
   positions: any[];
@@ -114,8 +117,11 @@ export class GiveSalaryComponent implements OnInit {
   }
 
   excel() {
-    this.http.get('http://localhost:8000/excel').subscribe(res => console.log(res));
-    this.http.get('http://localhost:8000/salaryEmail').subscribe(res => console.log(res));
+    this.http.get('http://localhost:8000/api/salary').subscribe(res => console.log(res), error => {console.log(error)});
+    this.http.get('http://localhost:8000/api/salary/salaryEmail').subscribe(res => {
+      console.log(res);
+      this.router.navigate(['/hr']);
+    });
   }
 
 }
