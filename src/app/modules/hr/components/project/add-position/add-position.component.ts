@@ -13,9 +13,11 @@ import {ToastrService} from 'ngx-toastr';
 export class AddPositionComponent implements OnInit {
 
   position: Position;
-  departments: any[];
+  departments  =
+    [{name: 'Software development', value: 'dev'},
+      {name: 'QA', value: 'QA'}];
+
   dropdownSettings = {};
-  dropdownSettingsD = {};
   http: HttpClient;
   router: Router;
 
@@ -27,10 +29,15 @@ export class AddPositionComponent implements OnInit {
   ngOnInit() {
     this.position = new Position();
 
-    this.http.get<string[]>('http://localhost:8080/departments').subscribe(res => {
-      this.departments = res;
-      console.log(this.departments);
-    });
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   onSubmit() {
@@ -40,7 +47,7 @@ export class AddPositionComponent implements OnInit {
         'Content-Type': 'application/json;charset=UTF-8',
       })
     };
-    this.http.post<Position>('http://localhost:8080/position', JSON.stringify(this.position), httpOptions)
+    this.http.post<Position>('http://localhost:8000/api/position', JSON.stringify(this.position), httpOptions)
       .subscribe(r => {
         console.log(r);
         this.router.navigate(['/hr']);

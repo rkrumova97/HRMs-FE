@@ -110,7 +110,7 @@ export class GiveSalaryComponent implements OnInit {
       })
     };
     console.log(JSON.stringify(this.employees));
-    this.http.post<Employee>('http://localhost:8000/api/employees', JSON.stringify(this.employees), httpOptions)
+    this.http.put<Employee>('http://localhost:8000/api/employee/'+employee.id, JSON.stringify(employee), httpOptions)
       .subscribe(r => {
         console.log(r);
       });

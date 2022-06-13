@@ -1,15 +1,15 @@
+import {Position} from "./position.model";
+
 export class Project {
   name: any;
   startingDate: any;
   departments: any;
-  grades: any[];
-  positions: any[];
+  positions: Position;
   skills: any[];
 
   constructor() {
-    this.grades = null;
     this.name = null;
-    this.positions = null;
+    this.positions = new Position();
     this.skills = null;
     this.startingDate = null;
     this.departments = null;

@@ -13,10 +13,11 @@ import {ToastrService} from "ngx-toastr";
 export class AddProjectComponent implements OnInit {
 
   project: Project;
-  skills: any[];
-  grades: any[];
+  skills = [{name: 'Management', value: 'Management'},
+    {name: 'Teamwork', value: 'Teamwork'}];
   positions: any[];
-  departments: any[];
+  departments = [{name: 'Software development', value: 'dev'},
+    {name: 'QA', value: 'QA'}];
   http: HttpClient;
   dropdownSettings: {};
   router: Router;
@@ -28,22 +29,8 @@ export class AddProjectComponent implements OnInit {
 
   ngOnInit() {
     this.project = new Project();
-    this.http.get<string[]>('http://localhost:8080/grades').subscribe(res => {
-      this.grades = res;
-      console.log(this.grades);
-    });
 
-    this.http.get<string[]>('http://localhost:8080/departments').subscribe(res => {
-      this.departments = res;
-      console.log(this.departments);
-    });
-
-    this.http.get<string[]>('http://localhost:8080/skills').subscribe(res => {
-      this.skills = res;
-      console.log(this.skills);
-    });
-
-    this.http.get<string[]>('http://localhost:8080/positions').subscribe(res => {
+    this.http.get<string[]>('http://localhost:8000/api/position').subscribe(res => {
       this.positions = res;
       console.log(this.positions);
     });
@@ -66,7 +53,7 @@ export class AddProjectComponent implements OnInit {
         'Content-Type': 'application/json;charset=UTF-8',
       })
     };
-    this.http.post<Query>('http://localhost:8080/project', JSON.stringify(this.project), httpOptions)
+    this.http.post<Query>('http://localhost:8000/api/project', JSON.stringify(this.project), httpOptions)
       .subscribe(r => {
         console.log(r);
         this.router.navigate(['/hr']);

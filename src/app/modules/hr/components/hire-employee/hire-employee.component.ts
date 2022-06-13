@@ -17,8 +17,8 @@ export class HireEmployeeComponent implements OnInit {
   grades: string[];
   http: HttpClient;
   skills =
-    [{name: 'Management', value: 3},
-      {name: 'Teamwork', value: 4}];
+    [{name: 'Management', value: 'Management'},
+      {name: 'Teamwork', value: 'Teamwork'}];
   employee: Employee;
   genders: string[];
   jobs: string[];
@@ -26,7 +26,6 @@ export class HireEmployeeComponent implements OnInit {
   dropdownSettings = {};
 
   // Forms validation
-  addForm: FormGroup;
   submitted = false;
   isAdding = false;
 

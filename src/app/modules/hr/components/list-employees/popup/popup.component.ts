@@ -40,13 +40,13 @@ export class PopupComponent {
         'Content-Type': 'application/json;charset=UTF-8',
       })
     };
-    this.http.get('http://localhost:8080/fire/'+id, httpOptions)
+    this.http.delete('http://localhost:8000/api/employee/'+id, httpOptions)
       .subscribe(r => {
         console.log(r);
-        this.router.navigate(['/hr/list']);
+        // this.router.navigate(['/hr/list']);
 
       });
-    this.modal.close();
-    window.location.reload();
+    // this.modal.close();
+    // window.location.reload();
   }
 }

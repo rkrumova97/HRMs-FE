@@ -40,23 +40,10 @@
             <label class="col-2 col-form-label">Department</label>
             <div class="col-12">
               <select [(ngModel)]="project.departments" name="first" id="working-days-input" class="custom-select">
-                <option *ngFor="let o of departments" [value]="o">
-                  {{o}}
+                <option *ngFor="let o of departments" [value]="o.value">
+                  {{o.name}}
                 </option>
               </select>
-            </div>
-          </div>
-
-          <div class="form-group col-md-6">
-            <label class="col-2 col-form-label">Grades</label>
-            <div class="col-12">
-              <ng-multiselect-dropdown
-                placeholder="Select grades"
-                name="dropdownSkills"
-                [data]="grades"
-                [(ngModel)]="project.grades"
-                [settings]="dropdownSettings">
-              </ng-multiselect-dropdown>
             </div>
           </div>
         </div>
@@ -66,26 +53,22 @@
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Positions</label>
             <div class="col-12">
-              <ng-multiselect-dropdown
-                placeholder="Select positions"
-                name="dropdownSkills"
-                [data]="positions"
-                [(ngModel)]="project.positions"
-                [settings]="dropdownSettings">
-              </ng-multiselect-dropdown>
+              <select [(ngModel)]="project.positions" name="first" id="positions-input" class="custom-select">
+                <option *ngFor="let o of positions" [value]="o.value">
+                  {{o.name}}
+                </option>
+              </select>
             </div>
           </div>
 
           <div class="form-group col-md-6">
             <label class="col-2 col-form-label">Skills</label>
             <div class="col-12">
-              <ng-multiselect-dropdown
-                placeholder="Select skills"
-                name="dropdownSkills"
-                [data]="skills"
-                [(ngModel)]="project.skills"
-                [settings]="dropdownSettings">
-              </ng-multiselect-dropdown>
+              <select [(ngModel)]="project.skills" name="first" id="skills-input" class="custom-select">
+                <option *ngFor="let o of skills" [value]="o.value">
+                  {{o.name}}
+                </option>
+              </select>
             </div>
           </div>
         </div>
