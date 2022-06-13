@@ -25,11 +25,11 @@ export class AssignEmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<Employee[]>('http://localhost:8080/benchEmployees').subscribe(res => {
+    this.http.get<Employee[]>('http://localhost:8000/api/employee').subscribe(res => {
       this.employees = res;
     });
 
-    this.http.get<string[]>('http://localhost:8080/jobs').subscribe(res => {
+    this.http.get<string[]>('http://localhost:8000/api/project').subscribe(res => {
       this.jobs = res;
       console.log(this.jobs);
     });
@@ -42,7 +42,7 @@ export class AssignEmployeeComponent implements OnInit {
         'Content-Type': 'application/json;charset=UTF-8',
       })
     };
-    this.http.post<Employee>('http://localhost:8080/updateEmployeeJob', JSON.stringify(employee), httpOptions)
+    this.http.put<Employee>('http://localhost:8000/api/employee/'+employee.id, JSON.stringify(employee), httpOptions)
       .subscribe(r => {
         console.log(r);
         this.router.navigate(['/hr/project']);
